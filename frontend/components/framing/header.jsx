@@ -6,8 +6,8 @@ class Header extends React.Component{
     super(props);
     this.state = {username: '', password: ''};
     this.handleChange = this.handleChange.bind(this);
-    this.greeting.bind(this);
-    this.loginForm.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleChange(event) {
@@ -17,11 +17,21 @@ class Header extends React.Component{
     this.setState({[name]: value});
   }
 
+  handleLogin(event) {
+    this.props.login(this.state);
+  }
+
+  handleLogout(event) {
+    this.props.logout();
+  }
+
   greeting() {
     return (
       <div>
         <h5>Welcome, {this.props.currentUser.username}</h5>
-        <button onClick={this.props.logout}>
+        <button
+          name="logout"
+          onClick={this.handleLogout}>
           Log Out
         </button>
       </div>
@@ -52,7 +62,12 @@ class Header extends React.Component{
           </input>
         </label>
 
-        <button type='submit' onClick={this.props.login}>Log In!</button>
+        <button
+          type='submit'
+          name="login"
+          onClick={this.handleLogin}>
+          Log In!
+        </button>
       </form>
     );
   }
