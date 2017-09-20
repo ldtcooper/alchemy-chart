@@ -4,7 +4,7 @@ import ErrorsReducer from './errors_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
-  error: ErrorsReducer
+  errors: ErrorsReducer
 });
 
 export default RootReducer;
