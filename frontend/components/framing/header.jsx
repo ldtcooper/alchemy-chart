@@ -7,6 +7,7 @@ class Header extends React.Component{
     this.state = {username: '', password: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -23,7 +24,13 @@ class Header extends React.Component{
   }
 
   handleLogout(event) {
+    event.preventDefault();
     this.props.logout();
+  }
+
+  demoLogin(event) {
+    event.preventDefault();
+    this.props.login({username: 'AlchemyChart_Demo', password:'password'});
   }
 
   greeting() {
@@ -67,6 +74,11 @@ class Header extends React.Component{
             onClick={this.handleLogin}>
             Log In!
           </button>
+
+          <button
+            type='submit'
+            name='demo-login'
+            onClick={this.demoLogin}>Demo</button>
         </form>
         {errorsShow}
       </div>
