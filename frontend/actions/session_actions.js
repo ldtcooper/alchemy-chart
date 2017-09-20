@@ -21,15 +21,24 @@ const receiveErrors = (errors) => {
 
 export const login = (user) => dispatch => {
   APIUtils.login(user)
-    .then( (logUser) => (dispatch(receiveCurrentUser(logUser))));
+    .then(
+      (logUser) => (dispatch(receiveCurrentUser(logUser))),
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
+    );
 };
 
 export const logout = () => dispatch => {
   APIUtils.logout()
-    .then( () => (dispatch(receiveCurrentUser(null))));
+    .then(
+      () => (dispatch(receiveCurrentUser(null))),
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
+    );
 };
 
 export const signup = (user) => dispatch => {
   APIUtils.signup(user)
-    .then( (newUser) => (dispatch(receiveCurrentUser(newUser))));
+    .then(
+      (newUser) => (dispatch(receiveCurrentUser(newUser))),
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
+    );
 };
