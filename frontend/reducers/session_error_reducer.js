@@ -14,3 +14,5 @@ const SessionErrorReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default SessionErrorReducer;
