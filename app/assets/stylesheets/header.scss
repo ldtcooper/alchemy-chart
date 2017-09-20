@@ -1,0 +1,34 @@
+@import "palette";
+@import "fonts";
+
+.header  {
+  background-color: $dark-teal;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+
+  h1  {
+    font-family: 'Signka', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px;
+    color: $text-white;
+  }
+
+  .rightside {
+    float: right;
+    padding: 10px;
+    label {
+      color: $text-white;
+      padding: 10px;
+      font-family: 'Signka', sans-serif;
+    }
+
+    button {
+      margin: 10px;
+    }
+  }
+}

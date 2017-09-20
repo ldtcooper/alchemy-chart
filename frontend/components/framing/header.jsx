@@ -28,7 +28,7 @@ class Header extends React.Component{
 
   greeting() {
     return (
-      <div>
+      <div className='rightside'>
         <h5>Welcome, {this.props.currentUser.username}</h5>
         <button
           name="logout"
@@ -42,28 +42,24 @@ class Header extends React.Component{
   loginForm() {
     const errorsShow = this.errorsShow();
     return (
-      <div>
+      <div className='rightside'>
         <form>
-          <label>
-            Username:
-            <input type="text"
-               name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-                >
-            </input>
-          </label>
+          <label>Username:</label>
+          <input type="text"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleChange}
+            >
+          </input>
 
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              >
-            </input>
-          </label>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+            >
+          </input>
 
           <button
             type='submit'
@@ -91,7 +87,7 @@ class Header extends React.Component{
   render() {
     const rightSide = this.props.currentUser ? this.greeting() : this.loginForm();
     return(
-      <header>
+      <header className='header'>
         <h1>AlchemyChart</h1>
         {rightSide}
       </header>

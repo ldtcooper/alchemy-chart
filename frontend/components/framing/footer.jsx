@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => (
   <footer>
-    <a href="https://www.linkedin.com/in/logandtcooper/">LinkedIn</a>
-    <a href="https://github.com/ldtcooper">Github</a>
-    <p>Created by Logan Cooper</p>
+    <a className='footer-text' href="https://www.linkedin.com/in/logandtcooper/">LinkedIn</a>
+    <a className='footer-text' href="https://github.com/ldtcooper">Github</a>
+    <p className='footer-text'>Created by Logan Cooper -- ldtcoop@gmail.com</p>
   </footer>
 );
 
