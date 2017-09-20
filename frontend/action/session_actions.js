@@ -16,3 +16,20 @@ const receiveErrors = (errors) => {
     errors
   };
 };
+
+// action creators
+
+export const login = (user) => dispatch => {
+  APIUtils.login(user)
+    .then( (logUser) => (dispatch(receiveUser(logUser))));
+};
+
+export const logout = () => dispatch => {
+  APIUtils.logout()
+    .then( () => (dispatch(receiveUser(null))));
+};
+
+export const signup = (user) => dispatch => {
+  APIUtils.signup(user)
+    .then( (newUser) => (dispatch(receiveUser(newUser))));
+};
