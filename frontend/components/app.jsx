@@ -1,8 +1,9 @@
 import React from 'react';
+import HeaderContainer from './framing/header_container';
 
 const App = () => (
   <div>
-    <h1>Alchemy Chart</h1>
+    <HeaderContainer />
   </div>
 );
 
