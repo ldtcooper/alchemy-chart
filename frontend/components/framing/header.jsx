@@ -40,36 +40,51 @@ class Header extends React.Component{
   }
 
   loginForm() {
+    const errorsShow = this.errorsShow();
     return (
-      <form>
-        <label>
-          Username:
-          <input type="text"
-             name="username"
-              value={this.state.username}
+      <div>
+        <form>
+          <label>
+            Username:
+            <input type="text"
+               name="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+                >
+            </input>
+          </label>
+
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
               onChange={this.handleChange}
               >
-          </input>
-        </label>
+            </input>
+          </label>
 
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            >
-          </input>
-        </label>
+          <button
+            type='submit'
+            name="login"
+            onClick={this.handleLogin}>
+            Log In!
+          </button>
+        </form>
+        {errorsShow}
+      </div>
+    );
+  }
 
-        <button
-          type='submit'
-          name="login"
-          onClick={this.handleLogin}>
-          Log In!
-        </button>
-      </form>
+  errorsShow() {
+    const errorItems = this.props.errors.map( (el, i) => (<li key={i} >{el}</li>));
+    return(
+      <div>
+        <ul>
+          {errorItems}
+        </ul>
+      </div>
     );
   }
 

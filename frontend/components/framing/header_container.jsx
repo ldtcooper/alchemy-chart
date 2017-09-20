@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { login, logout} from '../../actions/session_actions';
 import Header from './header';
 
-const mapStateToProps = ( {session} ) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ( state ) => ({
+  currentUser: state.session.currentUser,
+  errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({
