@@ -7,3 +7,5 @@ const Footer = () => (
     <p>Created by Logan Cooper</p>
   </footer>
 );
+
+export default Footer;
