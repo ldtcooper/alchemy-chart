@@ -16,7 +16,9 @@ class Signup extends React.Component{
   }
 
   handleSignup(event) {
+    event.preventDefault();
     this.props.signup(this.state);
+    this.setState({username: '', password: ''});
   }
 
   welcomeBlurb() {
@@ -28,6 +30,17 @@ class Signup extends React.Component{
            turn your leaden data into golden insights
          </p>
         <p>Just enter a username and a password to get started</p>
+      </div>
+    );
+  }
+
+  errorsShow() {
+    const errorItems = this.props.errors.map( (el, i) => (<li key={i} >{el}</li>));
+    return(
+      <div>
+        <ul>
+          {errorItems}
+        </ul>
       </div>
     );
   }
@@ -72,10 +85,12 @@ class Signup extends React.Component{
   render() {
     const blurb = this.welcomeBlurb();
     const signup = this.signupForm();
+    const err = this.errorsShow();
     return(
       <div>
         {blurb}
         {signup}
+        {err}
       </div>
     );
   }

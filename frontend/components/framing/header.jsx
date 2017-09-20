@@ -18,6 +18,7 @@ class Header extends React.Component{
   }
 
   handleLogin(event) {
+    event.preventDefault();
     this.props.login(this.state);
   }
 
