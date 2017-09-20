@@ -3,7 +3,7 @@ import SignupContainer from './signup/signup_container';
 
 const MainPage = () => (
   <main>
-    <p>Content</p>
+    <SignupContainer />
   </main>
 );
 
