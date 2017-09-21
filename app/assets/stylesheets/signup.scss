@@ -7,40 +7,59 @@
   .signup-box: {
     display: flex;
     flex-flow: column;
+
   }
 
   #blurb {
     background-color: $teal;
-    margin: 15px;
+    margin: 5% 5% 5% 5%;
+    box-shadow: $shadow-props;
 
     h3 {
       font-size: 26px;
+      margin: 20px 0px 30px 30px;
     }
 
     p {
       font-size: 18px;
+      margin: 30px 60px 30px 30px;
     }
   }
 
   #signup-form {
     background-color: $teal;
-    margin: 15px;
+    margin: 5% 5% 5% 16%;
+    box-shadow: $shadow-props;
 
     label {
       font-size: 18px;
     }
 
-    h4 {
-      font-size: 24px;
-    }
-
     form {
+      h4 {
+        font-size: 24px;
+        margin-bottom: 1%;
+      }
+
+      input {
+        margin: 4% 2% 4% 2%;
+      }
+
       flex-flow: column wrap;
+      padding: 30px;
     }
   }
 }
 
 .signup-text {
-  font-family: 'Kreon', serif;
-  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  margin: 1.25% 1% 1.25% 1%;
+  background-color: $accent-orange;
+  border: none;
+  text-decoration: none;
+  color: $text-white;
+  font-size: 14px;
 }

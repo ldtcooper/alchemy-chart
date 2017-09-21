@@ -51,8 +51,8 @@ class Signup extends React.Component{
     const err = this.errorsShow();
     return(
       <div id="signup-form" className="signup-box">
-        <h4 className='signup-text'>Create an Account</h4>
           <form>
+            <h4 className='signup-text'>Create an Account</h4>
             <label className='signup-text'>
               Username:
             </label>

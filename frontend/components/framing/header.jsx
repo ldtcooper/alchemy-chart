@@ -51,34 +51,38 @@ class Header extends React.Component{
     return (
       <div className='rightside'>
         <form>
-          <label className='rightside-text'>Username:</label>
-          <input type="text"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-            >
-          </input>
+          <div id='form-inputs'>
+            <label className='rightside-text'>Username:</label>
+            <input type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              >
+            </input>
 
-          <label className='rightside-text'>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            >
-          </input>
+            <label className='rightside-text'>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              >
+            </input>
+          </div>
+          
+          <div id='form-buttons'>
+            <button
+              type='submit'
+              name="login"
+              onClick={this.handleLogin}>
+              Log In!
+            </button>
 
-          <button
-            type='submit'
-            name="login"
-            onClick={this.handleLogin}>
-            Log In!
-          </button>
-
-          <button
-            type='submit'
-            name='demo-login'
-            onClick={this.demoLogin}>Demo</button>
+            <button
+              type='submit'
+              name='demo-login'
+              onClick={this.demoLogin}>Demo</button>
+          </div>
         </form>
         {errorsShow}
       </div>
