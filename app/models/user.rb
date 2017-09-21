@@ -18,6 +18,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :datasets,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Dataset
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
