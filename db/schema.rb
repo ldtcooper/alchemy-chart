@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919182939) do
+ActiveRecord::Schema.define(version: 20170921170958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "datasets", force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.string "dataset_name", null: false
+    t.string "data_type", null: false
+    t.jsonb "data_text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dataset_name", "owner_id"], name: "index_datasets_on_dataset_name_and_owner_id", unique: true
+    t.index ["owner_id"], name: "index_datasets_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
