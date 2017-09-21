@@ -36,7 +36,7 @@ class Header extends React.Component{
   greeting() {
     return (
       <div className='rightside'>
-        <h5>Welcome, {this.props.currentUser.username}</h5>
+        <h5 className='rightside-text'>Welcome, {this.props.currentUser.username}</h5>
         <button
           name="logout"
           onClick={this.handleLogout}>
@@ -51,7 +51,7 @@ class Header extends React.Component{
     return (
       <div className='rightside'>
         <form>
-          <label>Username:</label>
+          <label className='rightside-text'>Username:</label>
           <input type="text"
             name="username"
             value={this.state.username}
@@ -59,7 +59,7 @@ class Header extends React.Component{
             >
           </input>
 
-          <label>Password:</label>
+          <label className='rightside-text'>Password:</label>
           <input
             type="password"
             name="password"
@@ -86,7 +86,9 @@ class Header extends React.Component{
   }
 
   errorsShow() {
-    const errorItems = this.props.errors.map( (el, i) => (<li key={i} >{el}</li>));
+    const errorItems = this.props.errors.map( (el, i) => (
+      <li className='rightside-text' key={i} >{el}</li>)
+      );
     return(
       <div>
         <ul>
