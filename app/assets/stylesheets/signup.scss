@@ -10,14 +10,37 @@
   }
 
   #blurb {
-    background-color: red;
+    background-color: $teal;
+    margin: 15px;
 
     h3 {
-      
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 18px;
     }
   }
 
   #signup-form {
-    background-color: blue;
+    background-color: $teal;
+    margin: 15px;
+
+    label {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 24px;
+    }
+
+    form {
+      flex-flow: column wrap;
+    }
   }
+}
+
+.signup-text {
+  font-family: 'Kreon', serif;
+  padding: 5px;
 }

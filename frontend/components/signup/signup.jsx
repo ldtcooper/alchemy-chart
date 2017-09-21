@@ -24,18 +24,20 @@ class Signup extends React.Component{
   welcomeBlurb() {
     return(
       <div id="blurb" className="signup-box">
-        <h3>Welcome to Alchemy Chart</h3>
-        <p>Alchemy Chart is a free and open-source data visualization
+        <h3 className='signup-text'>Welcome to Alchemy Chart</h3>
+        <p className='signup-text' >Alchemy Chart is a free and open-source data visualization
            tool based off of Chartio that lets you
-           turn your leaden data into golden insights
+           turn your leaden data into golden insights.
          </p>
-        <p>Just enter a username and a password to get started</p>
+        <p className='signup-text'>Just enter a username and a password to get started!</p>
       </div>
     );
   }
 
   errorsShow() {
-    const errorItems = this.props.errors.map( (el, i) => (<li key={i} >{el}</li>));
+    const errorItems = this.props.errors.map( (el, i) => (
+      <li className='signup-text' key={i} >{el}</li>)
+    );
     return(
       <div>
         <ul>
@@ -49,20 +51,21 @@ class Signup extends React.Component{
     const err = this.errorsShow();
     return(
       <div id="signup-form" className="signup-box">
-        <h4>Create an Account</h4>
+        <h4 className='signup-text'>Create an Account</h4>
           <form>
-            <label>
+            <label className='signup-text'>
               Username:
+            </label>
               <input type="text"
                  name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
                   >
               </input>
-            </label>
-
-            <label>
+              <br/>
+            <label className='signup-text'>
               Password:
+            </label>
               <input
                 type="password"
                 name="password"
@@ -70,8 +73,7 @@ class Signup extends React.Component{
                 onChange={this.handleChange}
                 >
               </input>
-            </label>
-
+              <br/>
             <button
               type='submit'
               name="signup"
