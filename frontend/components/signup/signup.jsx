@@ -23,7 +23,7 @@ class Signup extends React.Component{
 
   welcomeBlurb() {
     return(
-      <div id="blurb">
+      <div id="blurb" className="signup-box">
         <h3>Welcome to Alchemy Chart</h3>
         <p>Alchemy Chart is a free and open-source data visualization
            tool based off of Chartio that lets you
@@ -46,9 +46,10 @@ class Signup extends React.Component{
   }
 
   signupForm() {
+    const err = this.errorsShow();
     return(
-      <div id="signup-form">
-        <h3>Create an Account</h3>
+      <div id="signup-form" className="signup-box">
+        <h4>Create an Account</h4>
           <form>
             <label>
               Username:
@@ -78,6 +79,7 @@ class Signup extends React.Component{
               Sign Up!
             </button>
           </form>
+          {err}
       </div>
     );
   }
@@ -85,12 +87,10 @@ class Signup extends React.Component{
   render() {
     const blurb = this.welcomeBlurb();
     const signup = this.signupForm();
-    const err = this.errorsShow();
     return(
       <div id="signup-content">
         {blurb}
         {signup}
-        {err}
       </div>
     );
   }

@@ -4,14 +4,20 @@
 #signup-content {
   display: flex;
 
+  .signup-box: {
+    display: flex;
+    flex-flow: column;
+  }
 
   #blurb {
     background-color: red;
-    display: flex;
+
+    h3 {
+      
+    }
   }
 
   #signup-form {
     background-color: blue;
-    display: flex;
   }
 }

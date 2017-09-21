@@ -11,7 +11,7 @@
   align-items: center;
 
   h1  {
-    font-family: 'Signka', sans-serif;
+    font-family: 'IM Fell English SC', serif;
     font-weight: bold;
     font-size: 30px;
     padding: 10px;
@@ -27,7 +27,8 @@
     .rightside-text {
       color: $text-white;
       padding: 10px;
-      font-family: 'Signka', sans-serif;
+      font-family: 'Kreon', serif;
+      font-kerning: normal;
     }
 
     button {
