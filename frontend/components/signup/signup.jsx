@@ -23,7 +23,7 @@ class Signup extends React.Component{
 
   welcomeBlurb() {
     return(
-      <div>
+      <div id="blurb">
         <h3>Welcome to Alchemy Chart</h3>
         <p>Alchemy Chart is a free and open-source data visualization
            tool based off of Chartio that lets you
@@ -47,7 +47,7 @@ class Signup extends React.Component{
 
   signupForm() {
     return(
-      <div>
+      <div id="signup-form">
         <h3>Create an Account</h3>
           <form>
             <label>
@@ -87,7 +87,7 @@ class Signup extends React.Component{
     const signup = this.signupForm();
     const err = this.errorsShow();
     return(
-      <div>
+      <div id="signup-content">
         {blurb}
         {signup}
         {err}

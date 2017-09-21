@@ -1,0 +1,17 @@
+@import "fonts";
+@import "palette";
+
+#signup-content {
+  display: flex;
+
+
+  #blurb {
+    background-color: red;
+    display: flex;
+  }
+
+  #signup-form {
+    background-color: blue;
+    display: flex;
+  }
+}
