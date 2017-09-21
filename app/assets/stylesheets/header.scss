@@ -60,14 +60,14 @@
       align-items: center;
     }
 
-    button {
-      margin: 5px;
-      padding: 4px;
-      background-color: $accent-orange;
-      border: none;
-      text-decoration: none;
-      color: $text-white;
-      font-size: 14px;
-    }
+  }
+  button {
+    margin: 5px;
+    padding: 4px;
+    background-color: $accent-orange;
+    border: none;
+    text-decoration: none;
+    color: $text-white;
+    font-size: 14px;
   }
 }
