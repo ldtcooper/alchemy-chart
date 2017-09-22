@@ -1,28 +1,46 @@
 import React from 'react';
 import DatasetListItem from './dataset_list_item';
 
-const ColNames = () => (
-  <ul className='dataset-list-header'>
-    <li>Name</li>
-    <li>Type</li>
-    <li><i class="material-icons">delete</i></li>
-  </ul>
-);
+class DatasetList {
+  constructor(props) {
+    super(props);
+  }
 
-const DatasetList = ({datasets, seeAllDatasets, removeDataset}) => {
-  return(
-    <div>
-      <h2>Datasets</h2>
-      <ul>
-        {ColNames}
-        {
-          datasets.map( (el) => {
-            return(<DatasetListItem key={el.id} dataset={el} />);
-          })
-        }
+  componentWillMount() {
+    this.props.seeAllDatasets();
+  }
+
+  colNames() {
+    return(
+      <ul className='dataset-list-header'>
+        <li>Name</li>
+        <li>Type</li>
+        <li>Delete</li>
       </ul>
-    </div>
-  );
-};
+    );
+  }
+
+  render() {
+    const ColNames = this.colNames();
+    return(
+      <div>
+        <h2>Datasets</h2>
+        <ul>
+          {ColNames}
+          {
+            this.props.datasets.map( (el) => {
+              return(
+                <DatasetListItem
+                  key={el.id}
+                  dataset={el}
+                />
+              );
+            })
+          }
+        </ul>
+      </div>
+    );
+  }
+}
 
 export default DatasetList;
