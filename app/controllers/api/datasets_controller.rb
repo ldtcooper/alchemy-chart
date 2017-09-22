@@ -16,7 +16,7 @@ class Api::DatasetsController < ApplicationController
 
   def destroy
     @dataset = Dataset.find(params[:id])
-    if @dataset
+    if @dataset && @dataset.owner_id == current_user.id
       @dataset.delete
       redirect_to :index
     else
