@@ -4,10 +4,15 @@ import DatasetListItem from './dataset_list_item';
 class DatasetList extends React.Component{
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(event) {
     this.props.seeAllDatasets();
+  }
+
+  handleDelete(id) {
+    this.props.removeDataset(id);
   }
 
   render() {
@@ -29,7 +34,7 @@ class DatasetList extends React.Component{
                   <DatasetListItem
                     key={el.id}
                     dataset={el}
-                    removeDataset={this.props.removeDataset}
+                    handleDelete={this.handleDelete}
                   />
                 );
               })

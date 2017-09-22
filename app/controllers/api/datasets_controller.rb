@@ -8,7 +8,7 @@ class Api::DatasetsController < ApplicationController
     @dataset = Dataset.new(dataset_params)
     @dataset.owner_id = current_user.id
     if @dataset.save
-      redirect_to :index
+      render :index
     else
       render json: @dataset.errors.full_messages, status: 422
     end
@@ -18,7 +18,7 @@ class Api::DatasetsController < ApplicationController
     @dataset = Dataset.find(params[:id])
     if @dataset && @dataset.owner_id == current_user.id
       @dataset.delete
-      redirect_to :index
+      render :index
     else
       render json: ["No such dataset found"], status: 404
     end
