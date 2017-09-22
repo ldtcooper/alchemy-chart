@@ -30,7 +30,7 @@ class Header extends React.Component{
 
   demoLogin(event) {
     event.preventDefault();
-    this.props.login({username: 'AlchemyChart_Demo', password:'password'});
+    this.props.login({username: 'Alchemy Chart User Demo', password:'password'});
   }
 
   greeting() {
