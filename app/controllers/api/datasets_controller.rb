@@ -1,6 +1,6 @@
 class Api::DatasetsController < ApplicationController
   def index
-    @datasets = Dataset.find_by(owner_id: current_user.id)
+    @datasets = Dataset.where('owner_id = ?', current_user.id)
     render :index
   end
 
