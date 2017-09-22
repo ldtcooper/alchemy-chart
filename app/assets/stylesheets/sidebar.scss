@@ -6,18 +6,18 @@ nav {
   background-color: $dark-teal;
   display: flex;
   flex-flow: column wrap;
-  width: 20%;
+  width: 18%;
   box-shadow: $shadow-props;
   a {
     font-family: $roboto;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
     color: $text-white;
-    padding: 5%
+    padding: 10%
   }
 
   .active {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
