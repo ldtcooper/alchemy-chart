@@ -13,3 +13,5 @@ const DatasetErrorReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default DatasetErrorReducer;

@@ -11,3 +11,5 @@ const DatasetsReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default DatasetsReducer;
