@@ -6,7 +6,7 @@ import MainPageSidebar from './main_page_sidebar';
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => (
-  <div>
+  <div id='app'>
     <HeaderContainer />
     <Switch>
       <Route exact path="/" render={() => <MainPage /> } />

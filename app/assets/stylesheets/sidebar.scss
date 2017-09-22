@@ -1,0 +1,23 @@
+@import "fonts";
+@import "palette";
+
+nav {
+  margin-top: 3%;
+  background-color: $dark-teal;
+  display: flex;
+  flex-flow: column wrap;
+  width: 20%;
+  box-shadow: $shadow-props;
+  a {
+    font-family: $roboto;
+    font-size: 16px;
+    text-decoration: none;
+    color: $text-white;
+    padding: 5%
+  }
+
+  .active {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => (
   <nav>
-    <NavLink to='/datasets'>Your Datasets</NavLink>
-    <NavLink to='/datasets/new'>Upload Data</NavLink>
-    <NavLink to='/charts/new'>Create Chart</NavLink>
-    <NavLink to='/charts'>Your Charts</NavLink>
+    <NavLink exact={true} to='/datasets' activeClassName="active">Your Datasets</NavLink>
+    <NavLink exact={true} to='/datasets/new' activeClassName="active">Upload Data</NavLink>
+    <NavLink exact={true} to='/charts/new' activeClassName="active">Create Chart</NavLink>
+    <NavLink exact={true} to='/charts' activeClassName="active">Your Charts</NavLink>
   </nav>
 );
 

@@ -8,7 +8,6 @@ const MainPage = () => (
   <main>
     <Switch>
       <Route exact path="/" render={() => <SignupContainer /> } />
-      <Route exact path="/datasets" render={() => <DatasetListContainer /> } />
     </Switch>
   </main>
 );

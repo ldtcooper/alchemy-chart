@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Sidebar from './framing/sidebar';
 
 const MainPageSidebar = () => (
-  <main>
+  <main className='main'>
     <Sidebar />
     <Switch>
       <Route exact path="/" render={() => <SignupContainer /> } />
