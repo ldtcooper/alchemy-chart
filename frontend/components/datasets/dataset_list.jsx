@@ -1,12 +1,12 @@
 import React from 'react';
 import DatasetListItem from './dataset_list_item';
 
-class DatasetList {
+class DatasetList extends React.Component{
   constructor(props) {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.seeAllDatasets();
   }
 
