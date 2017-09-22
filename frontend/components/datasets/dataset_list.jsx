@@ -5,7 +5,7 @@ const ColNames = () => (
   <ul className='dataset-list-header'>
     <li>Name</li>
     <li>Type</li>
-    <li>Delete</li>
+    <li><i class="material-icons">delete</i></li>
   </ul>
 );
 
