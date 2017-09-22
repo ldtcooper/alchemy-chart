@@ -1,6 +1,5 @@
 class CreateDatasets < ActiveRecord::Migration[5.1]
   def change
-      drop_table :datasets
       create_table :datasets do |t|
         t.integer :owner_id, null: false
         t.string :dataset_name, null: false
