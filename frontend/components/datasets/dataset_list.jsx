@@ -10,23 +10,16 @@ class DatasetList extends React.Component{
     this.props.seeAllDatasets();
   }
 
-  colNames() {
-    return(
-      <ul className='dataset-list-header'>
-        <li>Name</li>
-        <li>Type</li>
-        <li>Delete</li>
-      </ul>
-    );
-  }
-
   render() {
-    const ColNames = this.colNames();
     return(
-      <div >
+      <div id='datasets-list-div'>
         <h2>Datasets</h2>
-        <ul>
-          <li id='col-headers '>{ColNames}</li>
+        <ul id='datasets-list'>
+          <li className='dataset-list-header'>
+            <p>Name</p>
+            <p>Type</p>
+            <p>Delete</p>
+          </li>
           {
             this.props.datasets.map( (el) => {
               return(
