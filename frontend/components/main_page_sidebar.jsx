@@ -4,8 +4,9 @@ import DatasetListContainer from './datasets/dataset_list_container';
 import { Route, Switch } from 'react-router-dom';
 import Sidebar from './framing/sidebar';
 
-const MainPage = () => (
+const MainPageSidebar = () => (
   <main>
+    <Sidebar />
     <Switch>
       <Route exact path="/" render={() => <SignupContainer /> } />
       <Route exact path="/datasets" render={() => <DatasetListContainer /> } />
@@ -13,4 +14,4 @@ const MainPage = () => (
   </main>
 );
 
-export default MainPage;
+export default MainPageSidebar;

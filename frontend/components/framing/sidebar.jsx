@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => (
   <nav>
@@ -9,3 +9,5 @@ const Sidebar = () => (
     <NavLink to='/charts'>Your Charts</NavLink>
   </nav>
 );
+
+export default Sidebar;
