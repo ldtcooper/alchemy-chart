@@ -14,14 +14,12 @@
     box-shadow: $light-shadow-props;
   }
 
-  // Whole list
   #datasets-list {
     display: flex;
     flex-direction: column;
 
     .dataset-list-header {
       background-color: $teal;
-
       font-size: 18px;
       font-weight: bold;
       box-shadow: $light-shadow-props;
@@ -31,6 +29,8 @@
       display: flex;
       justify-content: space-between;
       padding: 0.5% 2% 0.5% 2%;
+      align-items: center;
+      flex-grow: 1;
     }
   }
 

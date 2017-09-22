@@ -14,23 +14,27 @@ class DatasetList extends React.Component{
     return(
       <div id='datasets-list-div'>
         <h2>Datasets</h2>
-        <ul id='datasets-list'>
-          <li className='dataset-list-header'>
-            <p>Name</p>
-            <p>Type</p>
-            <p>Delete</p>
-          </li>
-          {
-            this.props.datasets.map( (el) => {
-              return(
-                <DatasetListItem
-                  key={el.id}
-                  dataset={el}
-                />
-              );
-            })
-          }
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              this.props.datasets.map( (el) => {
+                return(
+                  <DatasetListItem
+                    key={el.id}
+                    dataset={el}
+                  />
+                );
+              })
+            }
+          </tbody>
+        </table>
       </div>
     );
   }
