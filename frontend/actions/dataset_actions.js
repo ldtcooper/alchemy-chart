@@ -1,7 +1,7 @@
 import * as DataApiUtils from '../util/dataset_api_util';
 
 export const RECEIVE_DATASETS = 'RECEIVE_DATASETS';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_DATA_ERRORS = 'RECEIVE_DATA_ERRORS';
 
 const receiveDatasets = (datasets) => {
   return {
@@ -12,7 +12,7 @@ const receiveDatasets = (datasets) => {
 
 const receiveErrors = (errors) => {
   return {
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_DATA_ERRORS,
     errors
   };
 };
