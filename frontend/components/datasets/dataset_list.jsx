@@ -29,6 +29,7 @@ class DatasetList extends React.Component{
                   <DatasetListItem
                     key={el.id}
                     dataset={el}
+                    removeDataset={this.props.removeDataset}
                   />
                 );
               })

@@ -6,9 +6,7 @@ import Sidebar from './framing/sidebar';
 
 const MainPage = () => (
   <main>
-    <Switch>
-      <Route exact path="/" render={() => <SignupContainer /> } />
-    </Switch>
+    <SignupContainer />
   </main>
 );
 
