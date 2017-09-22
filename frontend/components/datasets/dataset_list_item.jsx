@@ -3,7 +3,7 @@ import React from 'react';
 const DatasetListItem = ({ dataset }) => {
   return(
     <li>
-      <ul>
+      <ul className='dataset-element'>
         <li>{dataset.name}</li>
         <li>{dataset.type}</li>
         <li><i className="material-icons">delete</i></li>
