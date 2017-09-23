@@ -41,6 +41,7 @@ class DataUpload extends React.Component {
     const file = files[0]; //only allows one file to be uploaded at a time.
     const acceptedTypes = ['application/json', 'text/csv', 'text/tab-separated-values'];
     const dataType = this.fileType(file);
+    console.log(file);
 
     if (file.size > 20000) {
       this.setState({errors: ["Files must be under 20 kB in size."]});

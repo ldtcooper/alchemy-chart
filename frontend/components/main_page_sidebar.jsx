@@ -11,10 +11,9 @@ const MainPageSidebar = () => (
   <main className='main'>
     <Sidebar />
     <Switch>
-      <ProtectedRoute path="/" component= {DatasetListContainer} />
+      <Route exact path="/" render={() => <DatasetListContainer /> } />
       <Route exact path="/datasets" render={() => <DatasetListContainer /> } />
       <Route exact path="/datasets/new" render={() => <DataUploadContainer /> } />
-
       <Route path="*" render={() => <NotFound />}/>
     </Switch>
   </main>
