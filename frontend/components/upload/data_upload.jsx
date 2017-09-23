@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 class DataUpload {
   constructor(props) {
     super(props);
-    this.state = {disabled: false, files: []};
+    this.state = {disabled: false, files: [], name: ""};
   }
 
   handleDrop(files) {
