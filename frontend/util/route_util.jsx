@@ -19,7 +19,7 @@ const mapStateToProps = state => {
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
-// Protect login only pages from not loggd in users
+// Protect login only pages from not logged in users
 const Protected = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (
     !loggedIn ? (
