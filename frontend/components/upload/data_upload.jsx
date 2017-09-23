@@ -15,7 +15,7 @@ class DataUpload extends React.Component {
       dataType: "",
       dataset: [],
       errors: this.errors,
-      message: "Drop your file here, or click to select file to upload.(CSV, TSV, and JSON files only)"
+      message: "Drop your file here, or click to select file to upload (CSV, TSV, and JSON files only)"
       };
 
     this.handleChange = this.handleChange.bind(this);
@@ -68,20 +68,22 @@ class DataUpload extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='data-upload'>
         <h2>Upload Data</h2>
         <div className='dropzone'>
           <Dropzone
             onDrop={this.handleDrop.bind(this)}
             disabled={this.state.disabled}
             accept="application/json,text/csv,text/tab-separated-values"
+            className='drop-area'
             >
             <p>{this.state.message}</p>
           </Dropzone>
           <form>
-            <label>Name: </label>
-            <input type="text" value={this.state.name} onChange={this.handleChange}></input>
-            <button type="submit" name="Upload">Upload!</button>
+            <label>Name:
+              <input type="text" value={this.state.name} onChange={this.handleChange}></input>
+            </label>
+            <button type="submit" name="Upload" >Upload!</button>
           </form>
         </div>
       </div>
