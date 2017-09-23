@@ -17,6 +17,9 @@ class DataUpload extends React.Component {
       errors: this.errors,
       message: "Drop your file here, or click to select file to upload.(CSV, TSV, and JSON files only)"
       };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +55,17 @@ class DataUpload extends React.Component {
     }
   }
 
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    this.setState({name: value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    // dispatch props.addDataset
+  }
+
   render() {
     return (
       <div>
@@ -64,7 +78,11 @@ class DataUpload extends React.Component {
             >
             <p>{this.state.message}</p>
           </Dropzone>
-
+          <form>
+            <label>Name: </label>
+            <input type="text" value={this.state.name} onChange={this.handleChange}></input>
+            <button type="submit" name="Upload">Upload!</button>
+          </form>
         </div>
       </div>
     );
