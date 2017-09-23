@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-class DataUpload {
+class DataUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {disabled: false, files: [], name: ""};
@@ -32,3 +32,5 @@ class DataUpload {
   }
 
 }
+
+export default DataUpload;

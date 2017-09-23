@@ -3,7 +3,7 @@ import { addDataset } from '../../actions/dataset_actions';
 import DataUpload from './data_upload';
 
 const mapDispatchToProps = (dispatch) => ({
-  addDataset: (dataset) => addDataset(dataset)
+  addDataset: (dataset) => dispatch(addDataset(dataset))
 });
 
 export default connect(null, mapDispatchToProps)(DataUpload);
