@@ -28,7 +28,7 @@ export const seeAllDatasets = () => dispatch => {
 export const addDataset = (dataset) => dispatch => {
   DataApiUtils.sendDataset(dataset)
     .then(
-      (success) => (dispatch(receiveErrors(success.responseJSON))),
+      null,
       (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
 };

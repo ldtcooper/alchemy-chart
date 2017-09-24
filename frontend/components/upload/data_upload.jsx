@@ -72,16 +72,16 @@ class DataUpload extends React.Component {
     event.preventDefault();
     const dataset_name = this.state.name;
     const data_type = this.state.dataType;
-    const data_text = this.state.dataset;
+    const data_text = JSON.stringify(this.state.dataset);
 
     if (dataset_name === "") {
       this.setState({errors: ["Your dataset must have a name!"]});
     } else if (data_text === ""){
       this.setState({errors: ["You have to upload a data set!"]});
     } else {
-      this.setState({errors: []});
       const exportData = {dataset_name, data_type, data_text};
       this.props.addDataset(exportData);
+      this.setState({errors: ["Success"]});
     }
   }
 
@@ -90,9 +90,7 @@ class DataUpload extends React.Component {
     if (this.state.dataType === 'json') {
       dataset = JSON.parse(file);
     } else {
-      Papa.parse(file, (results) => {
-        dataset = JSON.parse(file);
-      });
+      dataset = Papa.parse(file);
     }
     this.setState({dataset});
   }
@@ -100,7 +98,7 @@ class DataUpload extends React.Component {
   errorShow() {
     let err = this.state.errors.map( (el, ind) => (<li key={ind}>{el}</li>));
     return(
-      <ul className = 'data-errors'>
+      <ul>
         {err}
       </ul>
     );
