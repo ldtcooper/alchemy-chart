@@ -23,6 +23,7 @@
       border: 2px $dark-teal dashed;
 
       p {
+        text-align: center;
         margin: 15%;
       }
     }
@@ -41,6 +42,10 @@
           min-width: 200px;
         }
       }
+    }
+    ul {
+      list-style: none;
+      margin: 2% auto 2% auto;
     }
   }
 }

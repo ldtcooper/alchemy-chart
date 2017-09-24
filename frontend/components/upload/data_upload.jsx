@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import * as Papa from 'papaparse';
 
 class DataUpload extends React.Component {
   constructor(props) {
@@ -26,6 +27,12 @@ class DataUpload extends React.Component {
     this.fileReader = new FileReader();
   }
 
+  componentWillReceiveProps(newProps) {
+    if(newProps.errors && newProps.errors !== this.state.errors) {
+      this.setState({errors: newProps.errors});
+    }
+  }
+
   fileType(file) {
     switch (file.type) {
       case 'application/json':
@@ -45,13 +52,13 @@ class DataUpload extends React.Component {
 
     if (file.size > 20000) {
       this.setState({errors: ["Files must be under 20 kB in size."]});
-    } else if (!acceptedTypes.include(file.type)) {
+    } else if (!acceptedTypes.includes(file.type)) {
       this.setState({errors: ["Files must be CSV, TSV, or JSON"]});
     }
     else {
       this.setState({errors: [], message: `${file.name}`}, dataType);
       this.fileReader.onload = (e) => {
-        // parse file
+        this.fileParse(e.target.response);
       };
     }
   }
@@ -65,6 +72,25 @@ class DataUpload extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     // dispatch props.addDataset
+  }
+
+  fileParse(file) {
+    if (this.state.dataType === 'json') {
+      console.log(file);
+    } else {
+      Papa.parse(file, (results) => {
+        console.log(results);
+      });
+    }
+  }
+
+  errorShow() {
+    let err = this.state.errors.map( (el) => <li>{el}</li>);
+    return(
+      <ul>
+        {err}
+      </ul>
+    );
   }
 
   render() {
@@ -86,6 +112,7 @@ class DataUpload extends React.Component {
             </label>
             <button type="submit" name="Upload" >Upload!</button>
           </form>
+          {this.errorShow()}
         </div>
       </div>
     );
