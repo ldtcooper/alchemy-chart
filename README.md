@@ -4,6 +4,7 @@ Alchemy Charts is a data visualization app based off of Charto. It's currently i
 And don't just forget this readme -- it'll evolve as the project does.
 
 ## Attributions
-  * Icons from Google's Material Icons pack
+  * Icons from Google's [Material Icons](https://material.io/icons/) pack
   * CSV and TSV parsing done with [Papa Parse](http://papaparse.com/)
   * [Dropzone](https://github.com/react-dropzone/react-dropzone) used for data import UI.
+  * Charts built with [Recharts](http://recharts.org/).
