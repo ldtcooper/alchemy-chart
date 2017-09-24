@@ -8,7 +8,7 @@ class Api::DatasetsController < ApplicationController
     @dataset = Dataset.new(dataset_params)
     @dataset.owner_id = current_user.id
     if @dataset.save
-      render :index
+      render json: ["Success!"]
     else
       render json: @dataset.errors.full_messages, status: 422
     end

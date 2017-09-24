@@ -9,7 +9,7 @@ export const sendDataset = (set) => (
   $.ajax({
     method: 'POST',
     url: 'api/datasets',
-    data: set
+    data: {dataset: set}
   })
 );
 

@@ -1,0 +1,51 @@
+@import "palette";
+@import "fonts";
+
+.data-upload {
+  background-color: $teal;
+  font-family: $roboto;
+  margin: 5%;
+  box-shadow: $shadow-props;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+
+  h2 {
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 1px $dark-teal solid;
+  }
+
+  .dropzone {
+    margin: auto;
+
+    .drop-area {
+      border: 2px $dark-teal dashed;
+
+      p {
+        text-align: center;
+        margin: 15%;
+      }
+    }
+
+    form {
+      margin: 2% auto 2% auto;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin: auto auto 1% auto;
+        display: flex;
+        align-items: center;
+        input {
+          margin: 2%;
+          min-width: 200px;
+        }
+      }
+    }
+    ul {
+      list-style: none;
+      margin: 2% auto 2% auto;
+    }
+  }
+}

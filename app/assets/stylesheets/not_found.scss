@@ -1,0 +1,16 @@
+@import "palette";
+@import "fonts";
+
+.not-found {
+  background-color: $teal;
+  font-family: $roboto;
+  margin: 5%;
+  width: 100%;
+  display: flex;
+  box-shadow: $shadow-props;
+
+  h2 {
+    font-size: 30px;
+    margin: auto;
+  }
+}
