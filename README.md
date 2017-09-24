@@ -5,3 +5,5 @@ And don't just forget this readme -- it'll evolve as the project does.
 
 ## Attributions
   * Icons from Google's Material Icons pack
+  * CSV and TSV parsing done with [Papa Parse](http://papaparse.com/)
+  * [Dropzone](https://github.com/react-dropzone/react-dropzone) used for data import UI.
