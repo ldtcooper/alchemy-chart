@@ -21,15 +21,15 @@ export const seeAllDatasets = () => dispatch => {
   DataApiUtils.fetchDatasets()
     .then(
       (datasets) => (dispatch(receiveDatasets(datasets))),
-      (error) => (dispatch(receiveErrors(error)))
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
 };
 
 export const addDataset = (dataset) => dispatch => {
   DataApiUtils.sendDataset(dataset)
     .then(
-      (success) => (dispatch(receiveErrors(success))),
-      (error) => (dispatch(receiveErrors(error)))
+      (success) => (dispatch(receiveErrors(success.responseJSON))),
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
 };
 
@@ -37,6 +37,6 @@ export const removeDataset = (id) => dispatch => {
   DataApiUtils.deleteDataset(id)
     .then(
       (datasets) => (dispatch(receiveDatasets(datasets))),
-      (error) => (dispatch(receiveErrors(error)))
+      (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
 };

@@ -28,7 +28,7 @@ class DataUpload extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(newProps.errors && newProps.errors !== this.state.errors) {
+    if(newProps.errors && newProps.errors !== this.errors) {
       this.setState({errors: newProps.errors});
     }
   }
@@ -98,7 +98,7 @@ class DataUpload extends React.Component {
   }
 
   errorShow() {
-    let err = this.state.errors.map( (el) => <li>{el}</li>);
+    let err = this.state.errors.map( (el) => (<li>{el}</li>));
     return(
       <ul>
         {err}
@@ -119,7 +119,7 @@ class DataUpload extends React.Component {
             >
             <p>{this.state.message}</p>
           </Dropzone>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <label>Name:
               <input type="text" value={this.state.name} onChange={this.handleChange}></input>
             </label>
