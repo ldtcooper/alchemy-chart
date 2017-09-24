@@ -14,7 +14,7 @@ class DataUpload extends React.Component {
       disabled: false,
       name: "",
       dataType: "",
-      dataset: [],
+      dataset: "",
       errors: this.errors,
       message: "Drop your file here, or click to select file to upload (CSV, TSV, and JSON files only)"
       };
@@ -48,18 +48,17 @@ class DataUpload extends React.Component {
     const file = files[0]; //only allows one file to be uploaded at a time.
     const acceptedTypes = ['application/json', 'text/csv', 'text/tab-separated-values'];
     const dataType = this.fileType(file);
-    console.log(file);
-
     if (file.size > 20000) {
       this.setState({errors: ["Files must be under 20 kB in size."]});
     } else if (!acceptedTypes.includes(file.type)) {
       this.setState({errors: ["Files must be CSV, TSV, or JSON"]});
     }
     else {
-      this.setState({errors: [], message: `${file.name}`}, dataType);
+      this.setState({errors: [], message: `${file.name}`, dataType});
       this.fileReader.onload = (e) => {
-        this.fileParse(e.target.response);
+        this.fileParse(e.target.result);
       };
+      this.fileReader.readAsText(file);
     }
   }
 
@@ -71,17 +70,31 @@ class DataUpload extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // dispatch props.addDataset
+    const dataset_name = this.state.name;
+    const data_type = this.state.dataType;
+    const data_text = this.state.dataset;
+
+    if (dataset_name === "") {
+      this.setState({errors: ["Your dataset must have a name!"]});
+    } else if (data_text === ""){
+      this.setState({errors: ["You have to upload a data set!"]});
+    } else {
+      this.setState({errors: []});
+      const exportData = {dataset_name, data_type, data_text};
+      this.props.addDataset(exportData);
+    }
   }
 
   fileParse(file) {
+    let dataset;
     if (this.state.dataType === 'json') {
-      console.log(file);
+      dataset = JSON.parse(file);
     } else {
       Papa.parse(file, (results) => {
-        console.log(results);
+        dataset = JSON.parse(file);
       });
     }
+    this.setState({dataset});
   }
 
   errorShow() {
