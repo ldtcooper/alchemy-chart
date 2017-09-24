@@ -98,9 +98,9 @@ class DataUpload extends React.Component {
   }
 
   errorShow() {
-    let err = this.state.errors.map( (el) => (<li>{el}</li>));
+    let err = this.state.errors.map( (el, ind) => (<li key={ind}>{el}</li>));
     return(
-      <ul>
+      <ul className = 'data-errors'>
         {err}
       </ul>
     );
