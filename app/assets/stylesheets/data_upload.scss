@@ -4,10 +4,10 @@
 .data-upload {
   background-color: $teal;
   font-family: $roboto;
-  margin: 5%;
+  margin: 4%;
   box-shadow: $shadow-props;
   display: flex;
-  width: 80%;
+  width: 100%;
   flex-direction: column;
 
   h2 {
@@ -25,6 +25,7 @@
       p {
         text-align: center;
         margin: 15%;
+        color: $text-white;
       }
     }
 
