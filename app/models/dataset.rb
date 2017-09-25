@@ -20,4 +20,9 @@ class Dataset < ApplicationRecord
   primary_key: :id,
   foreign_key: :owner_id,
   class_name: :User
+
+  has_many :charts,
+  primary_key: :id,
+  foreign_key: :dataset_id,
+  class_name: :Chart
 end

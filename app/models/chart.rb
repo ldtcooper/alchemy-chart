@@ -16,5 +16,14 @@ class Chart < ApplicationRecord
   validates :chart_type, presence: true, inclusion: { in: ['circle', 'bar', 'line', 'plot']}
   validates :chart_sort, presence: true, inclusion: { in: ['y-asc', 'y-desc', 'x-asc', 'x-desc']}
 
+  belongs_to :owner,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :User
+
+  belongs_to :dataset,
+  primary_key: :id,
+  foreign_key: :dataset_id,
+  class_name: :Dataset
 
 end
