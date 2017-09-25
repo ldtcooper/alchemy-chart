@@ -27,6 +27,9 @@ footer {
         padding-top: 2.5%;
         padding-left: 30px;
         align-self: center;
+        &:hover {
+          color: $text-grey;
+        }
       }
     }
 

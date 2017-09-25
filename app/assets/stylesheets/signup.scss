@@ -66,4 +66,13 @@ button {
   text-decoration: none;
   color: $text-white;
   font-size: 14px;
+  box-shadow: $button-shadow-props;
+
+  &:hover {
+    box-shadow: $button-hover-shadow;
+  }
+
+  &:active {
+    background-color: $text-grey;
+  }
 }

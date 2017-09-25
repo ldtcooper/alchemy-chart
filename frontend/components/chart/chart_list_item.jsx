@@ -3,7 +3,7 @@ import React from 'react';
 const ChartListItem = ( {chart, deleteDataset}) => (
   <tr>
     <td>{chart.name}</td>
-    <td>{chart.type}</td>
+    <td>{chart.chart_type}</td>
     <td>{chart.creator}</td>
     <td>
       <button>

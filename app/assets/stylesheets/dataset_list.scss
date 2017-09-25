@@ -37,6 +37,13 @@
           button {
             background-color: inherit;
             color: inherit;
+            box-shadow: none;
+            &:hover {
+              color: $text-white;
+            }
+            &:active {
+              color: $accent-orange;
+            }
           }
         }
       }
