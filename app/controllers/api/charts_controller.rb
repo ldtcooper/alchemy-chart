@@ -32,7 +32,7 @@ class Api::ChartsController < ApplicationController
 
   def chart_params
     params
-      .require(:charts)
+      .require(:chart)
       .permit(
         :dataset_id,
         :name,
