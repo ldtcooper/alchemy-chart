@@ -11,4 +11,31 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
+
+  .footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .links {
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      padding-left: 1.5%;
+      flex-flow: row nowrap;
+      a {
+        color: $text-black;
+        padding-top: 2.5%;
+        padding-left: 10px;
+        align-self: center;
+      }
+    }
+
+    .created-by {
+      display: flex;
+      font-family: $noto;
+      font-size: 16px;
+      margin-right: 1.5%;
+    }
+  }
+
 }
