@@ -1,22 +1,36 @@
 class ChartsController < ApplicationController
   def index
-
+    @charts = current_user.charts
+    render :index
   end
 
   def show
-
+    @chart = Chart.find(params[:id])
+    render :show
   end
 
   def create
-
+    @chart = Chart.new(chart_params)
+    @chart.owner_id = current_user.id
+    if @chart.save
+      render json: ["Success"]
+    else
+      render json: @chart.errors.full_messages, status: 422
+    end
   end
 
   def destroy
+    @chart = Chart.find(params[:id])
+    if @chart.delete
+      render json: ["Success"]
+    else
+      render json: ["No such chart found"]
+    end
+  end
 
+  private
+
+  def chart_params
+    params.require(:charts).permit(:dataset_id, :chart_type, :chart_sort)
   end
 end
-
-# api_charts GET    /api/charts(.:format)       api/charts#index
-#            POST   /api/charts(.:format)       api/charts#create
-#  api_chart GET    /api/charts/:id(.:format)   api/charts#show
-#            DELETE /api/charts/:id(.:format)   api/charts#destroy
