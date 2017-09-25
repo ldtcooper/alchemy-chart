@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925022630) do
+ActiveRecord::Schema.define(version: 20170925030102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20170925022630) do
     t.string "x_axis", null: false
     t.string "y_axis1", null: false
     t.string "y_axis2"
+    t.string "name", null: false
     t.index ["dataset_id"], name: "index_charts_on_dataset_id"
+    t.index ["owner_id", "name"], name: "index_charts_on_owner_id_and_name", unique: true
     t.index ["owner_id"], name: "index_charts_on_owner_id"
   end
 
