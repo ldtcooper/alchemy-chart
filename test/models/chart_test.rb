@@ -9,6 +9,8 @@
 #  chart_sort :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  x_axis     :string           not null
+#  y_axis     :string           not null
 #
 
 require 'test_helper'
