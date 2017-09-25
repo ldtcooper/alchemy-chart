@@ -25,11 +25,12 @@
     padding-bottom: 1.25%;
     padding-right: 5%;
     align-content: space-between;
-    justify-content: space-between;
     align-items: center;
-    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
 
     .rightside-text {
+      display: flex;
       color: $text-white;
       margin: 1.25% 1% 1.25% 1%;
       font-family: 'Roboto', sans-serif;
@@ -64,8 +65,8 @@
 
   }
   button {
-    margin: 5px;
-    padding: 4px;
+    margin: 2%;
+    padding: 5px;
     background-color: $accent-orange;
     border: none;
     text-decoration: none;
