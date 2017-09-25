@@ -13,7 +13,7 @@ class DatasetList extends React.Component{
   render() {
     let { removeDataset } = this.props;
     return(
-      <div id='datasets-list-div'>
+      <div id='list-div'>
         <h2>Datasets</h2>
         <table>
           <thead>
