@@ -12,6 +12,7 @@
 #  x_axis     :string           not null
 #  y_axis1    :string           not null
 #  y_axis2    :string
+#  name       :string           not null
 #
 
 require 'test_helper'
