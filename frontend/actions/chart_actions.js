@@ -1,4 +1,4 @@
-import * as ChartApiUtils from '../util/dataset_api_util';
+import * as ChartApiUtils from '../util/chart_api_util';
 
 export const RECEIVE_CHARTS = 'RECEIVE_CHARTS';
 export const RECEIVE_CHART = 'RECEIVE_CHART';

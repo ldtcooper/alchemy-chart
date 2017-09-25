@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 // testing
-import * as ApiUtil from './util/chart_api_util';
+import * as Actions from './actions/chart_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = { session: { currentUser: window.currentUser} };
     store = configureStore(preloadedState);
     delete window.currentUser;
-
   } else {
     store = configureStore();
   }

@@ -26,12 +26,3 @@ export const deleteChart = (id) => (
     url: `api/charts/${id}`
   })
 );
-
-// {
-//   dataset_id: 15,
-//   chart_type: 'bar',
-//   chart_sort: 'x-desc',
-//   x_axis: 'base',
-//   y_axis1: 'rates',
-//   name: 'GBP exchange rates'
-// }
