@@ -38,7 +38,7 @@ class Api::ChartsController < ApplicationController
         :name,
         :chart_type,
         :chart_sort,
-        :x_axis, 
+        :x_axis,
         :y_axis1,
         :y_axis2
       )
