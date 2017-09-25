@@ -10,11 +10,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  x_axis     :string           not null
-#  y_axis     :string           not null
+#  y_axis1    :string           not null
+#  y_axis2    :string
 #
 
 class Chart < ApplicationRecord
-  validates :owner_id, :dataset_id, presence: true
+  validates :owner_id, :dataset_id, :x_axis, :y_axis1, presence: true
   validates :chart_type, presence: true, inclusion: { in: ['circle', 'bar', 'line', 'plot']}
   validates :chart_sort, presence: true, inclusion: { in: ['y-asc', 'y-desc', 'x-asc', 'x-desc']}
 

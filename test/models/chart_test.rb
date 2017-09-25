@@ -10,7 +10,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  x_axis     :string           not null
-#  y_axis     :string           not null
+#  y_axis1    :string           not null
+#  y_axis2    :string
 #
 
 require 'test_helper'
