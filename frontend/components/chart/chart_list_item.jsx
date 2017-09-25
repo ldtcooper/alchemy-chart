@@ -7,7 +7,7 @@ const ChartListItem = ( {chart, deleteDataset}) => (
     <td>{chart.creator}</td>
     <td>
       <button>
-        <i class="material-icons">share</i>
+        <i className="material-icons">share</i>
       </button>
     </td>
     <td>

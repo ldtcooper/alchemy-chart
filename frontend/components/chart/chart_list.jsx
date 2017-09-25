@@ -11,7 +11,7 @@ class ChartList extends React.Component {
   }
 
   render() {
-    let { deleteDataset } = this.props;
+    let { deleteChart } = this.props;
     return(
       <div id='list-div'>
         <h2>Charts</h2>
@@ -26,7 +26,17 @@ class ChartList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            
+            {
+              this.props.charts.map ( (el) => {
+                return (
+                  <ChartListItem
+                    key={el.id}
+                    chart={el}
+                    deleteChart={deleteChart}
+                  />
+                );
+              })
+            }
           </tbody>
         </table>
       </div>
