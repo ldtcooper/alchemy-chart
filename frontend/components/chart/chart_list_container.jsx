@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import {
     seeAllCharts,
     deleteChart
-  } from '../../actions/';
-  
+  } from '../../actions/chart_actions';
+
 import ChartList from './chart_list';
 
 const mapStateToProps = (state) => ({

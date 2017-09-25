@@ -13,8 +13,22 @@ class ChartList extends React.Component {
   render() {
     let { deleteDataset } = this.props;
     return(
-      <div id='data'>
+      <div id='list-div'>
         <h2>Charts</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Creator</th>
+              <th>Share</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
       </div>
     );
   }
