@@ -2,9 +2,15 @@ import React from 'react';
 
 const Footer = () => (
   <footer>
-    <a className='footer-text' href="https://www.linkedin.com/in/logandtcooper/">LinkedIn</a>
-    <a className='footer-text' href="https://github.com/ldtcooper">Github</a>
-    <p className='footer-text'>Created by Logan Cooper -- ldtcoop@gmail.com</p>
+    <div className='footer-content'>
+      <div className="links">
+        <a href="https://www.linkedin.com/in/logandtcooper/"><i className="fa fa-linkedin-square"></i></a>
+        <a href="https://github.com/ldtcooper"><i className="fa fa-github"></i></a>
+      </div>
+      <div className="created-by">
+        <p>Created by Logan Cooper -- ldtcoop@gmail.com</p>
+      </div>
+    </div>
   </footer>
 );
 

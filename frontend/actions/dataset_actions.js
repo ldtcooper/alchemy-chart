@@ -2,6 +2,7 @@ import * as DataApiUtils from '../util/dataset_api_util';
 
 export const RECEIVE_DATASETS = 'RECEIVE_DATASETS';
 export const RECEIVE_DATA_ERRORS = 'RECEIVE_DATA_ERRORS';
+export const REMOVE_FRONTEND_DATASET = 'REMOVE_FRONTEND_DATASET';
 
 const receiveDatasets = (datasets) => {
   return {
@@ -14,6 +15,13 @@ const receiveErrors = (errors) => {
   return {
     type: RECEIVE_DATA_ERRORS,
     errors
+  };
+};
+
+const removeFrontendDataset = (id) => {
+  return {
+    type: REMOVE_FRONTEND_DATASET,
+    id
   };
 };
 
@@ -36,7 +44,7 @@ export const addDataset = (dataset) => dispatch => {
 export const removeDataset = (id) => dispatch => {
   DataApiUtils.deleteDataset(id)
     .then(
-      (datasets) => (dispatch(receiveDatasets(datasets))),
+      (removeId) => (dispatch(removeFrontendDataset(removeId))),
       (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
 };

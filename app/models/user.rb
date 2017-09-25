@@ -23,6 +23,11 @@ class User < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :Dataset
 
+  has_many :charts,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Chart
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

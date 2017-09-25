@@ -1,5 +1,5 @@
 import {
-  RECEIVE_DATASETS
+  RECEIVE_DATASETS, REMOVE_FRONTEND_DATASET
 } from '../actions/dataset_actions';
 
 const DatasetsReducer = (state = [], action) => {
@@ -7,6 +7,10 @@ const DatasetsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_DATASETS:
       return action.datasets;
+    case REMOVE_FRONTEND_DATASET:
+      let newState = [...state];
+      newState = newState.filter( (dataset) => (dataset.id !== action.id));
+      return newState;
     default:
       return state;
   }

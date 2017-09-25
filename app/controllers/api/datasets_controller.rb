@@ -18,7 +18,7 @@ class Api::DatasetsController < ApplicationController
     @dataset = Dataset.find(params[:id])
     if @dataset && @dataset.owner_id == current_user.id
       @dataset.delete
-      render :index
+      render json: @dataset.id
     else
       render json: ["No such dataset found"], status: 404
     end

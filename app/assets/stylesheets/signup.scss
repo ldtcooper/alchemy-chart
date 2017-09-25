@@ -11,7 +11,7 @@
 
   #blurb {
     background-color: $teal;
-    margin: 5% 5% 5% 5%;
+    margin: 5%;
     box-shadow: $shadow-props;
 
     h3 {
@@ -46,6 +46,10 @@
 
       flex-flow: column wrap;
       padding: 30px;
+
+      div {
+        margin: 5%;
+      }
     }
   }
 }
