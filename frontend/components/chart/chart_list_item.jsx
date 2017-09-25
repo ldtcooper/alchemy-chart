@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChartListItem = ( {chart, deleteDataset}) => (
+const ChartListItem = ( {chart, deleteChart}) => (
   <tr>
     <td>{chart.name}</td>
     <td>{chart.chart_type}</td>
@@ -11,7 +11,7 @@ const ChartListItem = ( {chart, deleteDataset}) => (
       </button>
     </td>
     <td>
-      <button onClick={ () => deleteDataset(chart.id)}>
+      <button onClick={ () => deleteChart(chart.id)}>
         <i className="material-icons">delete</i>
       </button>
     </td>

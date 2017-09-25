@@ -41,8 +41,13 @@
             &:hover {
               color: $text-white;
             }
+
             &:active {
               color: $accent-orange;
+            }
+
+            &:focus {
+              outline: none;
             }
           }
         }

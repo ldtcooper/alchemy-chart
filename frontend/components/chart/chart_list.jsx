@@ -32,7 +32,7 @@ class ChartList extends React.Component {
                   <ChartListItem
                     key={el.id}
                     chart={el}
-                    deleteChart={deleteChart}
+                    deleteChart={ deleteChart }
                   />
                 );
               })

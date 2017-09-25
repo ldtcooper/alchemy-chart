@@ -70,6 +70,7 @@ button {
 
   &:hover {
     box-shadow: $button-hover-shadow;
+    cursor: pointer;
   }
 
   &:active {
