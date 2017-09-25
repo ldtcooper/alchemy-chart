@@ -1,4 +1,4 @@
-class ChartsController < ApplicationController
+class Api::ChartsController < ApplicationController
   def index
     @charts = current_user.charts
     render :index
@@ -31,6 +31,6 @@ class ChartsController < ApplicationController
   private
 
   def chart_params
-    params.require(:charts).permit(:dataset_id, :chart_type, :chart_sort, :x_axis, :y_axis)
+    params.require(:charts).permit(:dataset_id, :chart_type, :chart_sort, :x_axis, :y_axis1, :y_axis2)
   end
 end
