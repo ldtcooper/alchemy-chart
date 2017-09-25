@@ -31,6 +31,16 @@ class Api::ChartsController < ApplicationController
   private
 
   def chart_params
-    params.require(:charts).permit(:dataset_id, :chart_type, :chart_sort, :x_axis, :y_axis1, :y_axis2)
+    params
+      .require(:charts)
+      .permit(
+        :dataset_id,
+        :name,
+        :chart_type,
+        :chart_sort,
+        :x_axis, 
+        :y_axis1,
+        :y_axis2
+      )
   end
 end
