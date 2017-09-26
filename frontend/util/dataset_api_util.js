@@ -5,6 +5,13 @@ export const fetchDatasets = () => (
   })
 );
 
+export const fetchDataset = (id) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/datasets/${id}`
+  })
+);
+
 export const sendDataset = (set) => (
   $.ajax({
     method: 'POST',
