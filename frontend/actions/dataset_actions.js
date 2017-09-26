@@ -15,7 +15,11 @@ const receiveDatasets = (datasets) => {
 const receiveDataset = (dataset) => {
   return {
     type: RECEIVE_DATASET,
-    dataset
+    dataset: {
+      id: dataset.id,
+      dataset_name: dataset.dataset_name,
+      data_text: JSON.parse(dataset.data_text)
+    }
   };
 };
 

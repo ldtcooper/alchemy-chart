@@ -15,7 +15,7 @@ class NewChartForm extends React.Component {
       x_axis: "",
       y_axis1: "",
       y_axis2: "",
-      dataset: {},
+      dataset: {}
     };
   }
 
@@ -32,7 +32,7 @@ class NewChartForm extends React.Component {
   handleDatasetChange(event) {
     let dataId = event.target.value;
     this.props.getDataset(dataId);
-
+    this.setState({dataset: this.props.currentDataset.data_text});
   }
 
   chartTypeDropdown() {
@@ -40,6 +40,7 @@ class NewChartForm extends React.Component {
       <div className="chart-dropdown">
         <label htmlFor='chart_type'>Chart Type:</label>
         <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
+          <option disabled>Select Chart Type</option>
           <option value='line'>Line</option>
           <option value='circle'>Circle</option>
           <option value='bar'>Bar</option>
@@ -54,6 +55,7 @@ class NewChartForm extends React.Component {
       <div className="chart-dropdown">
         <label htmlFor='chart_sort'>Chart Sorting:</label>
         <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
+          <option disabled>Select Chart Sort</option>
           <option value='x-asc'>X Ascending</option>
           <option value='x-desc'>X Descending</option>
           <option value='y-asc'>Y Ascending</option>
