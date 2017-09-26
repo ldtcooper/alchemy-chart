@@ -111,7 +111,7 @@ class Header extends React.Component{
     const rightSide = this.props.currentUser ? this.greeting() : this.loginForm();
     return(
       <header className='header'>
-        <h1>AlchemyChart</h1>
+        <Link to='/'><h1>AlchemyChart</h1></Link>
         {rightSide}
       </header>
     );

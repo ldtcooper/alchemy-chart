@@ -11,13 +11,17 @@
   align-items: center;
   box-shadow: $shadow-props;
 
-  h1  {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 36px;
-    padding: 1.25% 1% 1.25% 1%;
-    color: $text-white;
+  a{
+    text-decoration: none;   
+    h1  {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size: 36px;
+      padding: 1.25% 1% 1.25% 1%;
+      color: $text-white;
+    }
   }
+
 
   .rightside {
     display: flex;

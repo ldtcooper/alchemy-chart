@@ -1,4 +1,6 @@
 import React from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class NewChartForm extends React.Component {
   constructor(props) {
@@ -17,23 +19,26 @@ class NewChartForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getDatasets();
+  }
+
   handleChange(event) {
-    let name = event.target.name;
-    let value = event.target.value;
-    this.setState({[name]: value});
+      let name = event.target.name;
+      let value = event.target.value;
+      this.setState({[name]: value});
   }
 
   handleDatasetChange(event) {
-    let dataId = event.target.value;
-    this.props.getDataset(dataId);
+      let dataId = event.target.key;
+      this.props.getDataset(dataId);
   }
 
   chartTypeDropdown() {
     return(
       <div className="chart-dropdown">
-        <label for='chart_type'>Chart Type:</label>
-        <select name='chart_type'>
-          <option selected='true' disabled='disabled'>Chart Type</option>
+        <label htmlFor='chart_type'>Chart Type:</label>
+        <select name='chart_type' onChange={this.handleChange}>
           <option value='line'>Line</option>
           <option value='circle'>Circle</option>
           <option value='bar'>Bar</option>
@@ -46,9 +51,8 @@ class NewChartForm extends React.Component {
   chartSortDropdown() {
     return(
       <div className="chart-dropdown">
-        <label for='chart_sort'>Chart Sorting:</label>
-        <select name='chart_sort'>
-          <option selected='true' disabled='disabled'>Sorting</option>
+        <label htmlFor='chart_sort'>Chart Sorting:</label>
+        <select name='chart_sort' onChange={this.handleChange}>
           <option value='x-asc'>X Ascending</option>
           <option value='x-desc'>X Descending</option>
           <option value='y-asc'>Y Ascending</option>
@@ -60,13 +64,13 @@ class NewChartForm extends React.Component {
 
   datasetDropdown() {
     const avaliableDatasets = this.props.datasets.map( (el) => {
-      return( <option value={el.id}>{el.data_name}</option>);
+      return( <option key={el.id}>{el.data_name}</option>);
     });
 
     return(
       <div className="chart-dropdown" id="dataset-choice">
-        <select name='dataset_id'>
-          <option selected='true' disabled='disabled'>Select Dataset</option>
+        <select name='dataset_id' defaultValue='default'>
+          <option value='default' disabled='disabled'>Select Dataset</option>
           {avaliableDatasets}
         </select>
       </div>
@@ -79,11 +83,15 @@ class NewChartForm extends React.Component {
     const dataDropdown = this.datasetDropdown();
     return (
       <div className="chart-page">
-        {dataDropdown}
-        {typeDropdown}
-        {sortDropdown}
+        <form className="chart-form">
+          {dataDropdown}
+          {typeDropdown}
+          {sortDropdown}
+        </form>
       </div>
     );
   }
 
 }
+
+export default NewChartForm;
