@@ -2,7 +2,7 @@ import {
   RECEIVE_DATASET
 } from '../actions/dataset_actions';
 
-const CurrentChartReducer = (state = {}, action) => {
+const CurrentDatasetReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_DATASET:
@@ -12,4 +12,4 @@ const CurrentChartReducer = (state = {}, action) => {
   }
 };
 
-export default CurrentChartReducer;
+export default CurrentDatasetReducer;
