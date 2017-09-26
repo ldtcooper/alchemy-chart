@@ -24,21 +24,22 @@ class NewChartForm extends React.Component {
   }
 
   handleChange(event) {
-      let name = event.target.name;
-      let value = event.target.value;
-      this.setState({[name]: value});
+    let name = event.target.name;
+    let value = event.target.value;
+    this.setState({[name]: value});
   }
 
   handleDatasetChange(event) {
-      let dataId = event.target.key;
-      this.props.getDataset(dataId);
+    let dataId = event.target.value;
+    this.props.getDataset(dataId);
+
   }
 
   chartTypeDropdown() {
     return(
       <div className="chart-dropdown">
         <label htmlFor='chart_type'>Chart Type:</label>
-        <select name='chart_type' onChange={this.handleChange}>
+        <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
           <option value='line'>Line</option>
           <option value='circle'>Circle</option>
           <option value='bar'>Bar</option>
@@ -52,7 +53,7 @@ class NewChartForm extends React.Component {
     return(
       <div className="chart-dropdown">
         <label htmlFor='chart_sort'>Chart Sorting:</label>
-        <select name='chart_sort' onChange={this.handleChange}>
+        <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
           <option value='x-asc'>X Ascending</option>
           <option value='x-desc'>X Descending</option>
           <option value='y-asc'>Y Ascending</option>
@@ -64,12 +65,11 @@ class NewChartForm extends React.Component {
 
   datasetDropdown() {
     const avaliableDatasets = this.props.datasets.map( (el) => {
-      return( <option key={el.id}>{el.data_name}</option>);
+      return( <option key={el.id} value={el.id}>{el.name}</option>);
     });
-
     return(
       <div className="chart-dropdown" id="dataset-choice">
-        <select name='dataset_id' defaultValue='default'>
+        <select name='dataset_id' defaultValue='default' onChange={this.handleDatasetChange}>
           <option value='default' disabled='disabled'>Select Dataset</option>
           {avaliableDatasets}
         </select>
