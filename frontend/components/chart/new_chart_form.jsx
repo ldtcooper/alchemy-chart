@@ -1,6 +1,4 @@
 import React from 'react';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 
 class NewChartForm extends React.Component {
   constructor(props) {
@@ -38,14 +36,15 @@ class NewChartForm extends React.Component {
   chartTypeDropdown() {
     return(
       <div className="chart-dropdown">
-        <label htmlFor='chart_type'>Chart Type:</label>
-        <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
-          <option disabled>Select Chart Type</option>
-          <option value='line'>Line</option>
-          <option value='circle'>Circle</option>
-          <option value='bar'>Bar</option>
-          <option value='plot'>Plot</option>
-        </select>
+        <label>Chart Type:
+          <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
+            <option disabled>Select Chart Type</option>
+            <option value='line'>Line</option>
+            <option value='circle'>Circle</option>
+            <option value='bar'>Bar</option>
+            <option value='scatter'>Scatter</option>
+          </select>
+        </label>
       </div>
     );
   }
@@ -53,14 +52,15 @@ class NewChartForm extends React.Component {
   chartSortDropdown() {
     return(
       <div className="chart-dropdown">
-        <label htmlFor='chart_sort'>Chart Sorting:</label>
-        <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
-          <option disabled>Select Chart Sort</option>
-          <option value='x-asc'>X Ascending</option>
-          <option value='x-desc'>X Descending</option>
-          <option value='y-asc'>Y Ascending</option>
-          <option value='y-desc'>Y Descending</option>
-        </select>
+        <label >Chart Sorting:
+          <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
+            <option disabled>Select Chart Sort</option>
+            <option value='x-asc'>X Ascending</option>
+            <option value='x-desc'>X Descending</option>
+            <option value='y-asc'>Y Ascending</option>
+            <option value='y-desc'>Y Descending</option>
+          </select>
+        </label>
       </div>
     );
   }
@@ -79,16 +79,30 @@ class NewChartForm extends React.Component {
     );
   }
 
+  chartName() {
+    return(
+      <div className='chart-name-field'>
+        <label>Name:
+          <input type='text' name='name' value={this.state.name} onChange={this.handleChange}></input>
+        </label>
+      </div>
+    );
+  }
+
+
+
   render() {
     const typeDropdown = this.chartTypeDropdown();
     const sortDropdown = this.chartSortDropdown();
     const dataDropdown = this.datasetDropdown();
+    const nameField = this.chartName();
     return (
       <div className="chart-page">
         <form className="chart-form">
           {dataDropdown}
           {typeDropdown}
           {sortDropdown}
+          {nameField}
         </form>
       </div>
     );
