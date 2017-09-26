@@ -21,10 +21,11 @@ class Api::ChartsController < ApplicationController
 
   def destroy
     @chart = Chart.find(params[:id])
-    if @chart.delete
-      render json: ["Success"]
+    if @chart && @chart.owner_id == current_user.id
+      @chart.delete
+      render json: @chart.id
     else
-      render json: ["No such chart found"]
+      render json: ["No such chart found"], status: 404
     end
   end
 
