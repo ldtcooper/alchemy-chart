@@ -1,6 +1,7 @@
 import * as DataApiUtils from '../util/dataset_api_util';
 
 export const RECEIVE_DATASETS = 'RECEIVE_DATASETS';
+export const RECEIVE_DATASET = 'RECEIVE_DATASET';
 export const RECEIVE_DATA_ERRORS = 'RECEIVE_DATA_ERRORS';
 export const REMOVE_FRONTEND_DATASET = 'REMOVE_FRONTEND_DATASET';
 
@@ -8,6 +9,13 @@ const receiveDatasets = (datasets) => {
   return {
     type: RECEIVE_DATASETS,
     datasets
+  };
+};
+
+const receiveDataset = (dataset) => {
+  return {
+    type: RECEIVE_DATASET,
+    dataset
   };
 };
 
@@ -31,6 +39,14 @@ export const seeAllDatasets = () => dispatch => {
       (datasets) => (dispatch(receiveDatasets(datasets))),
       (error) => (dispatch(receiveErrors(error.responseJSON)))
     );
+};
+
+export const getOneDataset = (id) => dispatch => {
+  DataApiUtils.fetchDataset(id)
+  .then(
+    (dataset) => (dispatch(receiveDataset(dataset))),
+    (error) => (dispatch(receiveErrors(error.responseJSON)))
+  );
 };
 
 export const addDataset = (dataset) => dispatch => {
