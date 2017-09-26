@@ -46,7 +46,7 @@ export const seeAllDatasets = () => dispatch => {
 };
 
 export const getOneDataset = (id) => dispatch => {
-  DataApiUtils.fetchDataset(id)
+  return DataApiUtils.fetchDataset(id)
   .then(
     (dataset) => (dispatch(receiveDataset(dataset))),
     (error) => (dispatch(receiveErrors(error.responseJSON)))

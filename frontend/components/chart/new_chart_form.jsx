@@ -29,8 +29,9 @@ class NewChartForm extends React.Component {
 
   handleDatasetChange(event) {
     let dataId = event.target.value;
-    this.props.getDataset(dataId);
-    this.setState({dataset: this.props.currentDataset.data_text});
+    this.props.getDataset(dataId).then(() =>
+      this.setState({dataset: this.props.currentDataset.data_text})
+    );
   }
 
   chartTypeDropdown() {
@@ -72,7 +73,7 @@ class NewChartForm extends React.Component {
     return(
       <div className="chart-dropdown" id="dataset-choice">
         <select name='dataset_id' defaultValue='default' onChange={this.handleDatasetChange}>
-          <option value='default' disabled='disabled'>Select Dataset</option>
+          <option value='default' disabled>Select Dataset</option>
           {avaliableDatasets}
         </select>
       </div>
@@ -89,13 +90,37 @@ class NewChartForm extends React.Component {
     );
   }
 
-
+  axisSelect(axisCode, axisName) {
+    let avaliableAxes;
+    if (Array.isArray(this.state.dataset)) {
+      avaliableAxes = this.state.dataset[0].map( (el, ind) => (
+        <option key={ind} value={el}>{el}</option>
+      ));
+    } else {
+      avaliableAxes = Object.keys(this.state.dataset).map( (el, ind) => (
+        <option key={ind} value={el}>{el}</option>
+      ));
+    }
+    return(
+      <div className='axis-dropdown'>
+        <label>{axisName}:
+          <select name={axisCode} defaultValue='default' onChange={this.handleChange}>
+            <option value='default' disabled>Select {axisName}</option>
+            {avaliableAxes}
+          </select>
+        </label>
+      </div>
+    );
+  }
 
   render() {
     const typeDropdown = this.chartTypeDropdown();
     const sortDropdown = this.chartSortDropdown();
     const dataDropdown = this.datasetDropdown();
     const nameField = this.chartName();
+    const xAxisSelect = this.axisSelect('x_axis', 'X Axis');
+    const y1AxisSelect = this.axisSelect('y_axis1', 'First Y Axis');
+    const y2AxisSelect = this.axisSelect('y_axis2', 'Second Y Axis (Optional)');
     return (
       <div className="chart-page">
         <form className="chart-form">
@@ -103,6 +128,9 @@ class NewChartForm extends React.Component {
           {typeDropdown}
           {sortDropdown}
           {nameField}
+          {xAxisSelect}
+          {y1AxisSelect}
+          {y2AxisSelect}
         </form>
       </div>
     );
