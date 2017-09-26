@@ -90,7 +90,7 @@ class DataUpload extends React.Component {
     if (this.state.dataType === 'json') {
       dataset = JSON.parse(file);
     } else {
-      dataset = Papa.parse(file);
+      dataset = (Papa.parse(file).data);
     }
     this.setState({dataset});
   }
