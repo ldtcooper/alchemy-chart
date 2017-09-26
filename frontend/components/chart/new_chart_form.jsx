@@ -11,7 +11,7 @@ class NewChartForm extends React.Component {
       x_axis: "",
       y_axis1: "",
       y_axis2: "",
-      dataset_id: ""
+      dataset: {},
     };
   }
 
@@ -35,12 +35,22 @@ class NewChartForm extends React.Component {
 
   chartSortDropdown() {
     return(
-      <select name='chart_type'>
+      <select name='chart_sort'>
         <option selected='true' disabled='disabled'>Sorting</option>
         <option value='x-asc'>X Ascending</option>
         <option value='x-desc'>X Descending</option>
         <option value='y-asc'>Y Ascending</option>
         <option value='y-desc'>Y Descending</option>
+      </select>
+    );
+  }
+
+  datasetDropdown() {
+    const avaliableDatasets = this.props.datasets;
+    return(
+      <select name='dataset_id'>
+        <option selected='true' disabled='disabled'>Select Dataset</option>
+
       </select>
     );
   }

@@ -4,6 +4,15 @@ class Api::DatasetsController < ApplicationController
     render :index
   end
 
+  def show
+    @dataset = Dataset.find(params[:id]);
+    if @dataset && @dataset.owner_id == current_user.id
+      render :show
+    else
+      render json: ["No such dataset found"], status: 404
+    end
+  end
+
   def create
     @dataset = Dataset.new(dataset_params)
     @dataset.owner_id = current_user.id

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, only: [:create, :index]
     resource :session, only: [:create, :destroy]
-    resources :datasets, only: [:index, :create, :destroy]
+    resources :datasets, only: [:index, :create, :destroy, :show]
     resources :charts, only: [:index, :show, :create, :destroy]
   end
 end
