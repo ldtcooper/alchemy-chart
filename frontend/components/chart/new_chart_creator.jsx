@@ -1,5 +1,8 @@
 import React from 'react';
-import {LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {
+  LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid,
+  Tooltip, Legend, ResponsiveContainer
+} from 'recharts';
 
 class ChartMaker extends React.Component {
   constructor(props) {
@@ -57,10 +60,10 @@ class ChartMaker extends React.Component {
   lineChart() {
     if (this.props.y_axis2) {
       return(
-        <LineChart width={100} height={100} data={this.parseData()}>
+        <LineChart width={600} height={300} data={this.parseData()}>
           <XAxis dataKey={this.props.x_axis} />
           <YAxis />
-          <CartesianGrid stroker='#BDBDBD' strokeDasharray='5 5'/>
+          <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
           <Tooltip />
           <Legend />
           <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
@@ -69,10 +72,10 @@ class ChartMaker extends React.Component {
       );
     } else {
       return(
-        <LineChart width={100} height={100} data={this.parseData()}>
+        <LineChart width={600} height={300} data={this.parseData()}>
           <XAxis dataKey={this.props.x_axis} />
           <YAxis />
-          <CartesianGrid stroker='#BDBDBD' strokeDasharray='5 5'/>
+          <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
           <Tooltip />
           <Legend />
           <Line type='monotone' dataKey={this.props.y_axis1} stroke='#009688'/>
@@ -83,8 +86,8 @@ class ChartMaker extends React.Component {
 
   circleChart() {
       return(
-        <PieChart width={100} height={100}>
-          <Pie data={this.parseData()} fill='#009688' label/>
+        <PieChart width={600} height={300} data={this.parseData()}>
+          <Pie dataKey={this.props.x_axis} fill='#009688' label/>
         </PieChart>
       );
   }

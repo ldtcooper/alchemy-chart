@@ -121,7 +121,7 @@ class NewChartForm extends React.Component {
     const chartNameField = this.chartName();
     const xAxis = this.axisSelect('x_axis', 'X Axis');
     const yAxis1 = this.axisSelect('y_axis1', 'Y Axis One');
-    const yAxis2 = this.axisSelect('y_axis1', 'Y Axis Two (Optional)');
+    const yAxis2 = this.axisSelect('y_axis2', 'Y Axis Two (Optional)');
     return(
       <div className='chart-form'>
         {chartType}
