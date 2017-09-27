@@ -14,8 +14,8 @@ class NewChartForm extends React.Component {
       x_axis: "",
       y_axis1: "",
       y_axis2: "",
-      dataset: {},
-      errors: this.props.errors
+      dataset: undefined,
+      errors: this.props.errors,
     };
   }
 
@@ -28,7 +28,7 @@ class NewChartForm extends React.Component {
     let value = event.target.value;
     this.setState({[name]: value});
     // handle errors for pie and scatter
-    if (this.state.y_axis2 && (this.state.chart_type === 'scatter' || this.state.chart_type === 'circle')) {
+    if (this.state.chart_type === 'scatter' || this.state.chart_type === 'circle') {
       this.setState(
         {errors: Object.assign([], this.state.errors, ["This chart does not support multiple axes"])}
       );
@@ -44,7 +44,15 @@ class NewChartForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    const currentChart = {
+      name: this.state.name,
+      chart_sort: this.state.chart_sort,
+      chart_type: this.state.chart_type,
+      x_axis: this.state.x_axis,
+      y_axis1: this.state.y_axis1,
+      y_axis2: this.state.y_axis2,
+      dataset_id: this.state.dataset.id
+    };
   }
 
   chartTypeDropdown() {
@@ -103,16 +111,19 @@ class NewChartForm extends React.Component {
   }
 
   axisSelect(axisCode, axisName) {
-    let avaliableAxes;
-    if (Array.isArray(this.state.dataset)) {
-      avaliableAxes = this.state.dataset[0].map( (el, ind) => (
-        <option key={ind} value={el}>{el}</option>
-      ));
-    } else {
-      avaliableAxes = Object.keys(this.state.dataset).map( (el, ind) => (
-        <option key={ind} value={el}>{el}</option>
-      ));
+    let avaliableAxes = [];
+    if (this.state.dataset) {
+      if (Array.isArray(this.state.dataset[0])) {
+        avaliableAxes = this.state.dataset[0].map( (el, ind) => (
+          <option key={ind} value={el}>{el}</option>
+        ));
+      } else {
+        avaliableAxes = Object.keys(this.state.dataset[0]).map( (el, ind) => (
+          <option key={ind} value={el}>{el}</option>
+        ));
+      }
     }
+
     return(
       <div className='axis-dropdown'>
         <label>{axisName}:</label>
