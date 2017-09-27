@@ -17,7 +17,7 @@
 
 class Chart < ApplicationRecord
   validates :owner_id, :dataset_id, :x_axis, :y_axis1, presence: true
-  validates :chart_type, presence: true, inclusion: { in: ['circle', 'bar', 'line', 'scatter']}
+  validates :chart_type, presence: true, inclusion: { in: ['circle', 'bar', 'line', 'scatter', 'area']}
   validates :chart_sort, presence: true, inclusion: { in: ['y-asc', 'y-desc', 'x-asc', 'x-desc']}
   validates :name, presence: true, uniqueness: {scope: :owner_id}
 

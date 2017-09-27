@@ -103,7 +103,7 @@ class ChartMaker extends React.Component {
     if (this.props.y_axis2) {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <LineChart width={600} height={300} data={this.parseData()}>
+          <LineChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
             <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
             <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
@@ -117,7 +117,7 @@ class ChartMaker extends React.Component {
     } else {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <LineChart width={600} height={300} data={this.parseData()}>
+          <LineChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
             <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
             <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
@@ -133,7 +133,7 @@ class ChartMaker extends React.Component {
   circleChart() {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <PieChart width={600} height={300}>
+          <PieChart width={600} height={300} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
             <Pie startAngle={180} endAngle={0} data={this.parseData()} dataKey={this.props.x_axis} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
           </PieChart>
         </ResponsiveContainer>
@@ -144,7 +144,7 @@ class ChartMaker extends React.Component {
     if (this.props.y_axis2) {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <BarChart width={600} height={300} data={this.parseData()}>
+          <BarChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
             <XAxis dataKey={this.props.x_axis} />
             <YAxis dataKey={this.props.y_axis1} />
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
@@ -158,7 +158,7 @@ class ChartMaker extends React.Component {
     } else {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <BarChart width={600} height={300} data={this.parseData()}>
+          <BarChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
             <XAxis dataKey={this.props.x_axis} />
             <YAxis dataKey={this.props.y_axis1} />
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
@@ -174,7 +174,7 @@ class ChartMaker extends React.Component {
   scatterPlot() {
     return(
       <ResponsiveContainer width="100%" height="90%">
-        <ScatterChart width={600} height={300} data={this.parseData()}>
+        <ScatterChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
           <XAxis dataKey={this.props.x_axis} />
           <YAxis dataKey={this.props.y_axis1} />
           <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
