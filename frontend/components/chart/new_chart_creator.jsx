@@ -53,54 +53,54 @@ class ChartMaker extends React.Component {
           });
         }
       }
-
-      // determine how to order data
-      switch (this.props.chart_sort) {
-        case 'x-desc':
-          return data.sort( (a, b) => {
-            if (a[this.props.x_axis] > b[this.props.x_axis]) {
-              return -1;
-            } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-        case 'x-asc':
-          return data.sort( (a, b) => {
-            if (a[this.props.x_axis] > b[this.props.x_axis]) {
-              return 1;
-            } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
-              return -1;
-            } else {
-              return 0;
-            }
-          });
-        case 'y-desc':
-        return data.sort( (a, b) => {
-          if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
-            return -1;
-          } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
-            return 1;
-          } else {
-            return 0;
-          }
-        });
-        case 'y-asc':
-        return data.sort( (a, b) => {
-          if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
-            return 1;
-          } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
-            return -1;
-          } else {
-            return 0;
-          }
-        });
-      }
     } else {
       data = this.props.dataset;
     }
-    return data;
+
+    // determine how to order data
+    switch (this.props.chart_sort) {
+      case 'x-desc':
+        return data.sort( (a, b) => {
+          if (a[this.props.x_axis] > b[this.props.x_axis]) {
+            return -1;
+          } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+
+      case 'x-asc':
+        return data.sort( (a, b) => {
+          if (a[this.props.x_axis] > b[this.props.x_axis]) {
+            return 1;
+          } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      case 'y-desc':
+      return data.sort( (a, b) => {
+        if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
+          return -1;
+        } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      case 'y-asc':
+      return data.sort( (a, b) => {
+        if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
+          return 1;
+        } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    }
   }
 
   lineChart() {
