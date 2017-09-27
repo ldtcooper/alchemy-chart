@@ -57,6 +57,7 @@ class NewChartForm extends React.Component {
           <option value='circle'>Circle</option>
           <option value='bar'>Bar</option>
           <option value='scatter'>Scatter</option>
+          <option value='area'>Area</option>
         </select>
       </div>
     );
