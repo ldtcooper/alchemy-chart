@@ -8,7 +8,6 @@ class ChartMaker extends React.Component {
 
   parseData() {
     //find the indicies that match the headers
-    debugger;
     let data = [];
     const xInd = this.props.dataset[0].findIndex(this.props.x_axis);
     const yInd1 = this.props.dataset[0].findIndex(this.props.y_axis1);

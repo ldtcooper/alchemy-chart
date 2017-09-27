@@ -137,12 +137,21 @@ class NewChartForm extends React.Component {
 
   render() {
     const chartForm = this.chartForm();
-    return (
-      <div className="chart-page">
-        {chartForm}
-        <ChartMaker {...this.state}/>
-      </div>
-    );
+    if (this.state.dataset && this.state.chart_sort && this.state.chart_type && this.state.x_axis && this.state.y_axis1) {
+      return (
+        <div className="chart-page">
+          {chartForm}
+          <ChartMaker {...this.state}/>
+        </div>
+      );
+    } else {
+      return (
+        <div className="chart-page">
+          {chartForm}
+        </div>
+      );
+    }
+
   }
 
 }

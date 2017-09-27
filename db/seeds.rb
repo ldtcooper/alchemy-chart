@@ -7,14 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Dataset.delete_all
-User.delete_all
-
-User.create(
-  {
-    username: 'Alchemy Chart Demo User',
-    password: 'password'
-  }
-)
 
 demo_user = User.find_by(username: 'Alchemy Chart Demo User')
 
