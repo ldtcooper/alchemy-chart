@@ -35,18 +35,21 @@ class NewChartForm extends React.Component {
     );
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   chartTypeDropdown() {
     return(
       <div className="chart-dropdown">
-        <label>Chart Type:
-          <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
-            <option disabled>Select Chart Type</option>
-            <option value='line'>Line</option>
-            <option value='circle'>Circle</option>
-            <option value='bar'>Bar</option>
-            <option value='scatter'>Scatter</option>
-          </select>
-        </label>
+        <label>Chart Type:</label>
+        <select name='chart_type' value={this.state.chart_type} onChange={this.handleChange}>
+          <option disabled>Select Chart Type</option>
+          <option value='line'>Line</option>
+          <option value='circle'>Circle</option>
+          <option value='bar'>Bar</option>
+          <option value='scatter'>Scatter</option>
+        </select>
       </div>
     );
   }
@@ -54,15 +57,14 @@ class NewChartForm extends React.Component {
   chartSortDropdown() {
     return(
       <div className="chart-dropdown">
-        <label >Chart Sorting:
-          <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
-            <option disabled>Select Chart Sort</option>
-            <option value='x-asc'>X Ascending</option>
-            <option value='x-desc'>X Descending</option>
-            <option value='y-asc'>Y Ascending</option>
-            <option value='y-desc'>Y Descending</option>
-          </select>
-        </label>
+        <label >Chart Sorting:</label>
+        <select name='chart_sort' value={this.state.chart_sort} onChange={this.handleChange}>
+          <option disabled>Select Chart Sort</option>
+          <option value='x-asc'>X Ascending</option>
+          <option value='x-desc'>X Descending</option>
+          <option value='y-asc'>Y Ascending</option>
+          <option value='y-desc'>Y Descending</option>
+        </select>
       </div>
     );
   }
@@ -73,6 +75,7 @@ class NewChartForm extends React.Component {
     });
     return(
       <div className="chart-dropdown" id="dataset-choice">
+        <label>Datset:</label>
         <select name='dataset_id' defaultValue='default' onChange={this.handleDatasetChange}>
           <option value='default' disabled>Select Dataset</option>
           {avaliableDatasets}
@@ -84,9 +87,8 @@ class NewChartForm extends React.Component {
   chartName() {
     return(
       <div className='chart-name-field'>
-        <label>Name:
-          <input type='text' name='name' value={this.state.name} onChange={this.handleChange}></input>
-        </label>
+        <label>Name:</label>
+        <input type='text' name='name' value={this.state.name} onChange={this.handleChange}></input>
       </div>
     );
   }
@@ -104,12 +106,11 @@ class NewChartForm extends React.Component {
     }
     return(
       <div className='axis-dropdown'>
-        <label>{axisName}:
-          <select name={axisCode} defaultValue='default' onChange={this.handleChange}>
-            <option value='default' disabled>Select {axisName}</option>
-            {avaliableAxes}
-          </select>
-        </label>
+        <label>{axisName}:</label>
+        <select name={axisCode} defaultValue='default' onChange={this.handleChange}>
+          <option value=''>Select {axisName}</option>
+          {avaliableAxes}
+        </select>
       </div>
     );
   }
@@ -123,20 +124,33 @@ class NewChartForm extends React.Component {
     const yAxis1 = this.axisSelect('y_axis1', 'Y Axis One');
     const yAxis2 = this.axisSelect('y_axis2', 'Y Axis Two (Optional)');
     return(
-      <div className='chart-form'>
+      <form className='chart-form'>
+        {chartNameField}
+        {datasetSelect}
         {chartType}
         {chartSort}
-        {datasetSelect}
-        {chartNameField}
         {xAxis}
         {yAxis1}
         {yAxis2}
-      </div>
+        <button type="submit" name="save" >Save!</button>
+      </form>
+    );
+  }
+
+  errorShow() {
+    let errors = this.props.errors.map( (el, ind) => (
+      <li key={ind}>{el}</li>
+    ));
+    return(
+      <ul>
+        {errors}
+      </ul>
     );
   }
 
   render() {
     const chartForm = this.chartForm();
+    const errors = this.errorShow();
     if (this.state.dataset && this.state.chart_sort && this.state.chart_type && this.state.x_axis && this.state.y_axis1) {
       return (
         <div className="chart-page">
@@ -148,6 +162,12 @@ class NewChartForm extends React.Component {
       return (
         <div className="chart-page">
           {chartForm}
+          <div className='chart-div'>
+            <div className='no-chart-box'>
+              <h3>This is where the magic happens</h3>
+              {errors}
+            </div>
+          </div>
         </div>
       );
     }

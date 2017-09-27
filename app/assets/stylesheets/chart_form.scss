@@ -1,0 +1,50 @@
+@import "palette";
+@import "fonts";
+
+.chart-page {
+  background-color: $light-teal;
+  font-family: $roboto;
+  font-size: 14px;
+  margin: 4%;
+  box-shadow: $shadow-props;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
+  .chart-form {
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    margin: 5% 0% 5% 5%;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .chart-div {
+    display: flex;
+    width: 80%;
+    margin: 5%;
+
+    .no-chart-box {
+      width: 100%;
+      border: 2px dashed $divider-grey;
+      display: flex;
+      justify-content: center;
+
+      h3 {
+        font-size: 20px;
+        color: $text-grey;
+        margin-top: 30%;
+      }
+
+      ul {
+        list-style: none;
+        margin: 5%;
+      }
+    }
+  }
+}

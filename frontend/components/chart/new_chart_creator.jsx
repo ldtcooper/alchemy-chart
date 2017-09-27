@@ -1,12 +1,21 @@
 import React from 'react';
 import {
   LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer
+  Tooltip, Legend, ResponsiveContainer, BarChart, Bar
 } from 'recharts';
 
 class ChartMaker extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  numberOrString(str) {
+    // tests if the strings from the dataset are numbers in disguise
+    if (/^[0-9]*$/.test(str)) {
+      return parseInt(str, 10);
+    } else {
+      return str;
+    }
   }
 
   parseData() {
@@ -19,36 +28,42 @@ class ChartMaker extends React.Component {
     // if two y-axes
     if (yInd2) {
       for (let i = 1; i < this.props.dataset.length; i++) {
+        let x = this.numberOrString(this.props.dataset[i][xInd]);
+        let y1 = this.numberOrString(this.props.dataset[i][yInd1]);
+        let y2 = this.numberOrString(this.props.dataset[i][yInd2]);
         data.push({
-          [this.props.x_axis]: this.props.dataset[i][xInd],
-          [this.props.y_axis1]: this.props.dataset[i][yInd1],
-          [this.props.y_axis2]: this.props.dataset[i][yInd2]
+          [this.props.x_axis]: x,
+          [this.props.y_axis1]: y1,
+          [this.props.y_axis2]: y2
         });
       }
     // if only one y axis
     } else {
       for (let i = 1; i < this.props.dataset.length; i++) {
+        let x = this.numberOrString(this.props.dataset[i][xInd]);
+        let y = this.numberOrString(this.props.dataset[i][yInd1]);
         data.push({
-          [this.props.x_axis]: this.props.dataset[i][xInd],
-          [this.props.y_axis1]: this.props.dataset[i][yInd1]
+          [this.props.x_axis]: x,
+          [this.props.y_axis1]: y
         });
       }
     }
 
+    // determine how to order data
     switch (this.props.chart_sort) {
-      case 'x-asc':
+      case 'x-desc':
         return data.sort( (a, b) => (
           a[this.props.x_axis] < b[this.props.x_axis]
         ));
-      case 'x-desc':
+      case 'x-asc':
         return data.sort( (a, b) => (
           a[this.props.x_axis] > b[this.props.x_axis]
         ));
-      case 'y-asc':
+      case 'y-desc':
         return data.sort( (a, b) => (
           a[this.props.y_axis1] < b[this.props.y_axis1]
         ));
-      case 'y-desc':
+      case 'y-asc':
         return data.sort( (a, b) => (
           a[this.props.y_axis1] > b[this.props.y_axis1]
         ));
@@ -60,40 +75,73 @@ class ChartMaker extends React.Component {
   lineChart() {
     if (this.props.y_axis2) {
       return(
-        <LineChart width={600} height={300} data={this.parseData()}>
-          <XAxis dataKey={this.props.x_axis} />
-          <YAxis />
-          <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
-          <Tooltip />
-          <Legend />
-          <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
-          <Line type='monotone' dataKey={this.props.y_axis2} stroke='#B2DFDB'/>
-        </LineChart>
+        <ResponsiveContainer width="100%" height="90%">
+          <LineChart width={600} height={300} data={this.parseData()}>
+            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
+            <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
+            <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
+            <Tooltip />
+            <Legend />
+            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
+            <Line type='monotone' dataKey={this.props.y_axis2} stroke='#B2DFDB'/>
+          </LineChart>
+        </ResponsiveContainer>
       );
     } else {
       return(
-        <LineChart width={600} height={300} data={this.parseData()}>
-          <XAxis dataKey={this.props.x_axis} />
-          <YAxis />
-          <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
-          <Tooltip />
-          <Legend />
-          <Line type='monotone' dataKey={this.props.y_axis1} stroke='#009688'/>
-        </LineChart>
+        <ResponsiveContainer width="100%" height="90%">
+          <LineChart width={600} height={300} data={this.parseData()}>
+            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
+            <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
+            <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
+            <Tooltip />
+            <Legend />
+            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#009688'/>
+          </LineChart>
+        </ResponsiveContainer>
       );
     }
   }
 
   circleChart() {
       return(
-        <PieChart width={600} height={300} data={this.parseData()}>
-          <Pie dataKey={this.props.x_axis} fill='#009688' label/>
-        </PieChart>
+        <ResponsiveContainer width="100%" height="90%">
+          <PieChart width={600} height={300} data={this.parseData()}>
+            <Pie dataKey={this.props.x_axis} fill='#009688' label/>
+          </PieChart>
+        </ResponsiveContainer>
       );
   }
 
   barChart() {
-
+    if (this.props.y_axis2) {
+      return(
+        <ResponsiveContainer width="100%" height="90%">
+          <BarChart width={600} height={300} data={this.parseData()}>
+            <XAxis dataKey={this.props.x_axis} />
+            <YAxis dataKey={this.props.y_axis1} />
+            <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
+            <Tooltip />
+            <Legend />
+            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
+            <Bar type='monotone' dataKey={this.props.y_axis2} fill='#B2DFDB'/>
+          </BarChart>
+        </ResponsiveContainer>
+      );
+    } else {
+      return(
+        <ResponsiveContainer width="100%" height="90%">
+          <BarChart width={600} height={300} data={this.parseData()}>
+            <XAxis dataKey={this.props.x_axis} />
+            <YAxis dataKey={this.props.y_axis1} />
+            <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
+            <Tooltip />
+            <Legend />
+            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
+          </BarChart>
+        </ResponsiveContainer>
+      );
+    }
   }
 
   scatterPlot() {

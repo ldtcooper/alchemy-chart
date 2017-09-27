@@ -5,7 +5,8 @@ import NewChartForm from './new_chart_form';
 
 const mapStateToProps = (state) => ({
   datasets: state.datasets,
-  currentDataset: state.currentDataset
+  currentDataset: state.currentDataset,
+  errors: state.errors.chartCreate
 });
 
 const mapDispatchToProps = dispatch => ({
