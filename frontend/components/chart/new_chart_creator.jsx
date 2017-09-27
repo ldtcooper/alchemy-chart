@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer, BarChart, Bar
+  Tooltip, Legend, ResponsiveContainer, BarChart, Bar, ScatterChart,
+  Scatter
 } from 'recharts';
 
 class ChartMaker extends React.Component {
@@ -13,6 +14,8 @@ class ChartMaker extends React.Component {
     // tests if the strings from the dataset are numbers in disguise
     if (/^[0-9]*$/.test(str)) {
       return parseInt(str, 10);
+    } else if (/\d*\.\d*/.test(str)) {
+      return parseFloat(str, 10);
     } else {
       return str;
     }
@@ -52,25 +55,49 @@ class ChartMaker extends React.Component {
     // determine how to order data
     switch (this.props.chart_sort) {
       case 'x-desc':
-        return data.sort( (a, b) => (
-          a[this.props.x_axis] < b[this.props.x_axis]
-        ));
+        return data.sort( (a, b) => {
+          if (a[this.props.x_axis] > b[this.props.x_axis]) {
+            return -1;
+          } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
       case 'x-asc':
-        return data.sort( (a, b) => (
-          a[this.props.x_axis] > b[this.props.x_axis]
-        ));
+        return data.sort( (a, b) => {
+          if (a[this.props.x_axis] > b[this.props.x_axis]) {
+            return 1;
+          } else if (a[this.props.x_axis] < b[this.props.x_axis]) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
       case 'y-desc':
-        return data.sort( (a, b) => (
-          a[this.props.y_axis1] < b[this.props.y_axis1]
-        ));
+      return data.sort( (a, b) => {
+        if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
+          return -1;
+        } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
       case 'y-asc':
-        return data.sort( (a, b) => (
-          a[this.props.y_axis1] > b[this.props.y_axis1]
-        ));
+      return data.sort( (a, b) => {
+        if (a[this.props.y_axis1] > b[this.props.y_axis1]) {
+          return 1;
+        } else if (a[this.props.y_axis1] < b[this.props.y_axis1]) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
     }
+    console.log(data);
     return data;
   }
-
 
   lineChart() {
     if (this.props.y_axis2) {
@@ -83,7 +110,7 @@ class ChartMaker extends React.Component {
             <Tooltip />
             <Legend />
             <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
-            <Line type='monotone' dataKey={this.props.y_axis2} stroke='#B2DFDB'/>
+            <Line type='monotone' dataKey={this.props.y_axis2} stroke='#FF5722'/>
           </LineChart>
         </ResponsiveContainer>
       );
@@ -96,7 +123,7 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#009688'/>
+            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
           </LineChart>
         </ResponsiveContainer>
       );
@@ -106,8 +133,8 @@ class ChartMaker extends React.Component {
   circleChart() {
       return(
         <ResponsiveContainer width="100%" height="90%">
-          <PieChart width={600} height={300} data={this.parseData()}>
-            <Pie dataKey={this.props.x_axis} fill='#009688' label/>
+          <PieChart width={600} height={300}>
+            <Pie startAngle={180} endAngle={0} data={this.parseData()} dataKey={this.props.x_axis} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
           </PieChart>
         </ResponsiveContainer>
       );
@@ -124,7 +151,7 @@ class ChartMaker extends React.Component {
             <Tooltip />
             <Legend />
             <Bar type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
-            <Bar type='monotone' dataKey={this.props.y_axis2} fill='#B2DFDB'/>
+            <Bar type='monotone' dataKey={this.props.y_axis2} fill='#FF5722'/>
           </BarChart>
         </ResponsiveContainer>
       );
@@ -145,7 +172,18 @@ class ChartMaker extends React.Component {
   }
 
   scatterPlot() {
-
+    return(
+      <ResponsiveContainer width="100%" height="90%">
+        <ScatterChart width={600} height={300} data={this.parseData()}>
+          <XAxis dataKey={this.props.x_axis} />
+          <YAxis dataKey={this.props.y_axis1} />
+          <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
+          <Tooltip cursor={{ strokeDasharray: '3 3' }}/>
+          <Legend />
+          <Scatter type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
+        </ScatterChart>
+      </ResponsiveContainer>
+    );
   }
 
   render() {

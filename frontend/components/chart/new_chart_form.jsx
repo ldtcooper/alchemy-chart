@@ -14,7 +14,8 @@ class NewChartForm extends React.Component {
       x_axis: "",
       y_axis1: "",
       y_axis2: "",
-      dataset: {}
+      dataset: {},
+      errors: this.props.errors
     };
   }
 
@@ -26,6 +27,12 @@ class NewChartForm extends React.Component {
     let name = event.target.name;
     let value = event.target.value;
     this.setState({[name]: value});
+    // handle errors for pie and scatter
+    if (this.state.y_axis2 && (this.state.chart_type === 'scatter' || this.state.chart_type === 'circle')) {
+      this.setState(
+        {errors: Object.assign([], this.state.errors, ["This chart does not support multiple axes"])}
+      );
+    }
   }
 
   handleDatasetChange(event) {
@@ -37,6 +44,7 @@ class NewChartForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
   }
 
   chartTypeDropdown() {
@@ -138,13 +146,15 @@ class NewChartForm extends React.Component {
   }
 
   errorShow() {
-    let errors = this.props.errors.map( (el, ind) => (
+    let errors = this.state.errors.map( (el, ind) => (
       <li key={ind}>{el}</li>
     ));
     return(
-      <ul>
-        {errors}
-      </ul>
+      <div className='errors'>
+        <ul>
+          {errors}
+        </ul>
+      </div>
     );
   }
 
@@ -154,20 +164,25 @@ class NewChartForm extends React.Component {
     if (this.state.dataset && this.state.chart_sort && this.state.chart_type && this.state.x_axis && this.state.y_axis1) {
       return (
         <div className="chart-page">
-          {chartForm}
-          <ChartMaker {...this.state}/>
+          <content>
+            {chartForm}
+            <ChartMaker {...this.state}/>
+          </content>
+          {errors}
         </div>
       );
     } else {
       return (
         <div className="chart-page">
-          {chartForm}
-          <div className='chart-div'>
-            <div className='no-chart-box'>
-              <h3>This is where the magic happens</h3>
-              {errors}
+          <content>
+            {chartForm}
+            <div className='chart-div'>
+              <div className='no-chart-box'>
+                <h3>This is where the magic happens</h3>
+              </div>
             </div>
-          </div>
+          </content>
+          {errors}
         </div>
       );
     }
