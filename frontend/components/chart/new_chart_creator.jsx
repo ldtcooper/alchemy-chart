@@ -9,9 +9,9 @@ class ChartMaker extends React.Component {
   parseData() {
     //find the indicies that match the headers
     let data = [];
-    const xInd = this.props.dataset[0].findIndex(this.props.x_axis);
-    const yInd1 = this.props.dataset[0].findIndex(this.props.y_axis1);
-    const yInd2 = this.props.dataset[0].findIndex(this.props.y_axis2);
+    const xInd = (this.props.dataset[0]).indexOf(this.props.x_axis);
+    const yInd1 = (this.props.dataset[0]).indexOf(this.props.y_axis1);
+    const yInd2 = (this.props.dataset[0]).indexOf(this.props.y_axis2);
     // iterate through dataset to find and index correct data
     // if two y-axes
     if (yInd2) {
@@ -69,7 +69,7 @@ class ChartMaker extends React.Component {
       );
     } else {
       return(
-        <LineChart width='100%' height='100%' data={this.parseData()}>
+        <LineChart width={100} height={100} data={this.parseData()}>
           <XAxis dataKey={this.props.x_axis} />
           <YAxis />
           <CartesianGrid stroker='#BDBDBD' strokeDasharray='5 5'/>
@@ -83,7 +83,7 @@ class ChartMaker extends React.Component {
 
   circleChart() {
       return(
-        <PieChart width='100%' height='100%'>
+        <PieChart width={100} height={100}>
           <Pie data={this.parseData()} fill='#009688' label/>
         </PieChart>
       );
