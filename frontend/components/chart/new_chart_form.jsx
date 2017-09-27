@@ -1,4 +1,5 @@
 import React from 'react';
+import ChartMaker from './new_chart_creator';
 
 class NewChartForm extends React.Component {
   constructor(props) {
@@ -113,25 +114,33 @@ class NewChartForm extends React.Component {
     );
   }
 
+  chartForm() {
+    const chartType = this.chartTypeDropdown();
+    const chartSort = this.chartSortDropdown();
+    const datasetSelect = this.datasetDropdown();
+    const chartNameField = this.chartName();
+    const xAxis = this.axisSelect('x_axis', 'X Axis');
+    const yAxis1 = this.axisSelect('y_axis1', 'Y Axis One');
+    const yAxis2 = this.axisSelect('y_axis1', 'Y Axis Two (Optional)');
+    return(
+      <div className='chart-form'>
+        {chartType}
+        {chartSort}
+        {datasetSelect}
+        {chartNameField}
+        {xAxis}
+        {yAxis1}
+        {yAxis2}
+      </div>
+    );
+  }
+
   render() {
-    const typeDropdown = this.chartTypeDropdown();
-    const sortDropdown = this.chartSortDropdown();
-    const dataDropdown = this.datasetDropdown();
-    const nameField = this.chartName();
-    const xAxisSelect = this.axisSelect('x_axis', 'X Axis');
-    const y1AxisSelect = this.axisSelect('y_axis1', 'First Y Axis');
-    const y2AxisSelect = this.axisSelect('y_axis2', 'Second Y Axis (Optional)');
+    const chartForm = this.chartForm();
     return (
       <div className="chart-page">
-        <form className="chart-form">
-          {dataDropdown}
-          {typeDropdown}
-          {sortDropdown}
-          {nameField}
-          {xAxisSelect}
-          {y1AxisSelect}
-          {y2AxisSelect}
-        </form>
+        {chartForm}
+        <ChartMaker {...this.state}/>
       </div>
     );
   }
