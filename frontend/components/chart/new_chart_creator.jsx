@@ -14,10 +14,14 @@ class ChartMaker extends React.Component {
     // tests if the strings from the dataset are numbers in disguise
     if (/^[0-9]*$/.test(str)) {
       return parseInt(str, 10);
+    // tests if they are number strings with commas
+    } else if (/\d*\,\d*/.test(str)) {
+        let newStr = str.replace(/,/g, '');
+        return parseInt(newStr, 10);
     } else if (/\d*\.\d*/.test(str)) {
-      return parseFloat(str, 10);
+        return parseFloat(str, 10);
     } else {
-      return str;
+        return str;
     }
   }
 
