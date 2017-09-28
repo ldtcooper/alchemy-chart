@@ -13,12 +13,13 @@ const MainPageSidebar = () => (
   <main className='main'>
     <Sidebar />
     <Switch>
-      <Route exact path="/" render={() => <DatasetListContainer /> } />
-      <Route exact path="/datasets" render={() => <DatasetListContainer /> } />
-      <Route exact path="/datasets/new" render={() => <DataUploadContainer /> } />
-      <Route exact path="/charts" render={() => <ChartListContainer />} />
-      <Route path='/charts/:id' render={ () => <NewChartContainer />} />
-      <Route path="*" render={() => <NotFound />}/>
+      <Route exact path="/" component={DatasetListContainer} />
+      <Route exact path="/datasets" component={DatasetListContainer} />
+      <Route exact path="/datasets/new" component={DataUploadContainer} />
+      <Route exact path="/charts" component={ChartListContainer} />
+      <Route exact path='/charts/new' component={NewChartContainer} />
+      <Route path='/charts/:id' component={NewChartContainer} />
+      <Route path="*" component={NotFound}/>
     </Switch>
   </main>
 );
