@@ -10,7 +10,7 @@ class SharePage extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchUsers();
   }
 
@@ -36,6 +36,7 @@ class SharePage extends React.Component {
     const avaliableUsers = this.allUsers();
     return(
       <div className='share-form'>
+        <h2>Share Chart</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Share this chart with:
             <select onChange={this.handleChange}>

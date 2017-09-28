@@ -1,0 +1,36 @@
+@import "palette";
+@import "fonts";
+
+.share-form {
+  background-color: $teal;
+  font-family: $roboto;
+  margin: 4%;
+  box-shadow: $shadow-props;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  h2 {
+    font-size: 30px;
+    padding: 2%;
+    border-bottom: 1px $dark-teal solid;
+    background-color: $dark-teal;
+  }
+
+  form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    label {
+      margin: 2%;
+
+      select {
+        margin: 2%;
+        width: 100%;
+      }
+    }
+  }
+
+}
