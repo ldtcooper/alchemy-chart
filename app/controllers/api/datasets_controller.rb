@@ -26,6 +26,7 @@ class Api::DatasetsController < ApplicationController
   def destroy
     @dataset = Dataset.find(params[:id])
     if @dataset && @dataset.owner_id == current_user.id
+      @dataset.charts.each(&:delete)
       @dataset.delete
       render json: @dataset.id
     else

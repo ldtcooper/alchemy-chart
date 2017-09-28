@@ -2,7 +2,7 @@ import React from 'react';
 import {
   LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, BarChart, Bar, ScatterChart,
-  Scatter, AreaChart, Area
+  Scatter, AreaChart, Area, Cell
 } from 'recharts';
 
 class ChartMaker extends React.Component {
@@ -135,10 +135,17 @@ class ChartMaker extends React.Component {
   }
 
   circleChart() {
+    const COLORS = ['#009688', '#00796B', '#FF5722', '#BDBDBD'];
+    let data = this.parseData();
       return(
         <ResponsiveContainer width="100%" height="90%">
           <PieChart width={600} height={300} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
-            <Pie startAngle={180} endAngle={0} data={this.parseData()} dataKey={this.props.x_axis} cx={200} cy={200} outerRadius={80} fill="#8884d8" label/>
+            <Pie data={data} nameKey={this.props.x_axis} dataKey={this.props.y_axis1} fill="#00796B">
+              {
+                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
+              }
+            </Pie>
+            <Tooltip />
           </PieChart>
         </ResponsiveContainer>
       );
