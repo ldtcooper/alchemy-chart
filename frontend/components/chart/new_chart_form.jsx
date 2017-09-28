@@ -44,8 +44,8 @@ class NewChartForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.target.preventDefault();
-    const currentChart = {
+    event.preventDefault();
+    const savedChart = {
       name: this.state.name,
       chart_sort: this.state.chart_sort,
       chart_type: this.state.chart_type,
@@ -54,7 +54,7 @@ class NewChartForm extends React.Component {
       y_axis2: this.state.y_axis2,
       dataset_id: this.props.currentDataset.id
     };
-    this.props.saveChart(currentChart);
+    this.props.saveChart(savedChart);
   }
 
   chartTypeDropdown() {

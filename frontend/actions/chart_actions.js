@@ -50,8 +50,8 @@ export const seeOneChart = (id) => dispatch => {
 };
 
 export const addChart = (chart) => dispatch => {
-  ChartApiUtils.createChart(chart).
-  then(
+  ChartApiUtils.createChart(chart)
+  .then(
     null,
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
