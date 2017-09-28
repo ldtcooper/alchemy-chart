@@ -1,10 +1,10 @@
 import { allUsers } from '../util/user_api_util';
 
-export const RECIEVE_USERS = 'RECIEVE_USERS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 const receiveUsers = (users) => {
   return {
-    type: RECIEVE_USERS,
+    type: RECEIVE_USERS,
     users
   };
 };

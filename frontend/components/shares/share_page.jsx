@@ -4,7 +4,8 @@ class SharePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shareWithId: ''
+      shareWithId: undefined,
+      errors: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,31 +21,46 @@ class SharePage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const sharedChart = {
-      sharee_id: this.sate.shareWithId,
-      chart_id: this.props.match.params.id
-    };
+    if (this.state.shareWithId) {
+      const sharedChart = {
+        sharee_id: this.state.shareWithId,
+        chart_id: this.props.match.params.id
+      };
+      this.setState({errors: ['Success']});
+    } else {
+      this.setState({errors: ['You must select a user!']});
+    }
   }
 
   allUsers() {
-    this.props.users.map( (el) => {
-      return(<option key={el.id} value={el.id}>{el.username}</option>);
+    return this.props.users.map( (el) => (
+      <option key={el.id} value={el.id}>{el.username}</option>
+    ));
+  }
+
+  errorShow() {
+    return this.state.errors.map( (el, ind) => {
+      return(<li key={ind}>{el}</li>);
     });
   }
 
   render() {
     const avaliableUsers = this.allUsers();
+    const errors = this.errorShow();
     return(
       <div className='share-form'>
         <h2>Share Chart</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Share this chart with:
             <select onChange={this.handleChange}>
-              <option disabled>Select User</option>
+              <option>Select User</option>
               {avaliableUsers}
             </select>
           </label>
           <button type='submit'>Share!</button>
+          <ul>
+            {errors}
+          </ul>
         </form>
       </div>
     );
