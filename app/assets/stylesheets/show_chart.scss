@@ -1,0 +1,24 @@
+@import "palette";
+@import "fonts";
+
+.chart-view {
+  height: 100%;
+  width: 100%;
+  font-family: $roboto;
+  margin: 4%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-props;
+
+  h2 {
+    background: $dark-teal;
+    font-size: 30px;
+    padding: 2%;
+  }
+
+  .chart-div {
+    height: 100%;
+    width: 100%;
+    background-color: $light-teal;
+  }
+}
