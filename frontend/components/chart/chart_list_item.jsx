@@ -8,7 +8,9 @@ const ChartListItem = ( {chart, deleteChart}) => (
     <td>{chart.creator}</td>
     <td>
       <button>
-        <i className="material-icons">share</i>
+        <Link to={`/charts/${chart.id}/share`}>
+          <i className="material-icons">share</i>
+        </Link>
       </button>
     </td>
     <td>

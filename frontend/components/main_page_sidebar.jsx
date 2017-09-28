@@ -5,6 +5,7 @@ import DataUploadContainer from './upload/data_upload_container';
 import ChartListContainer from './chart/chart_list_container';
 import NewChartContainer from './chart/new_chart_container';
 import ChartShowContainer from './chart/chart_show_container';
+import SharePageContainer from './shares/shares_container';
 import NotFound from './not_found';
 import { Route, Switch } from 'react-router-dom';
 import Sidebar from './framing/sidebar';
@@ -19,6 +20,7 @@ const MainPageSidebar = () => (
       <Route exact path="/datasets/new" component={DataUploadContainer} />
       <Route exact path="/charts" component={ChartListContainer} />
       <Route exact path='/charts/new' component={NewChartContainer} />
+      <Route path='/charts/:id/share' component={SharePageContainer} />
       <Route path='/charts/:id' component={ChartShowContainer} />
       <Route path="*" component={NotFound}/>
     </Switch>

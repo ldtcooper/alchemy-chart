@@ -11,3 +11,5 @@ const mapDispatchToProps = (dispatch) => ({
   shareChart: (userId, chartId) => (dispatch(shareChart(userId, chartId))),
   fetchUsers: () => (dispatch(fetchUsers()))
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(SharePage);
