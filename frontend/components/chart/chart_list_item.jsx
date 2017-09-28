@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ChartListItem = ( {chart, deleteChart}) => (
   <tr>
-    <td>{chart.name}</td>
+    <td><Link to={`/charts/${chart.id}`}>{chart.name}</Link></td>
     <td>{chart.chart_type}</td>
     <td>{chart.creator}</td>
     <td>
