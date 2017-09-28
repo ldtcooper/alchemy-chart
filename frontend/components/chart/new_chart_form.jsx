@@ -44,7 +44,7 @@ class NewChartForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    event.target.preventDefault();
     const currentChart = {
       name: this.state.name,
       chart_sort: this.state.chart_sort,
@@ -54,7 +54,7 @@ class NewChartForm extends React.Component {
       y_axis2: this.state.y_axis2,
       dataset_id: this.props.currentDataset.id
     };
-
+    this.props.saveChart(currentChart);
   }
 
   chartTypeDropdown() {
@@ -146,7 +146,7 @@ class NewChartForm extends React.Component {
     const yAxis1 = this.axisSelect('y_axis1', 'Y Axis One');
     const yAxis2 = this.axisSelect('y_axis2', 'Y Axis Two (Optional)');
     return(
-      <form className='chart-form'>
+      <form className='chart-form' onSubmit={this.handleSubmit}>
         {chartNameField}
         {datasetSelect}
         {chartType}
@@ -154,7 +154,7 @@ class NewChartForm extends React.Component {
         {xAxis}
         {yAxis1}
         {yAxis2}
-        <button type="submit" name="save" >Save!</button>
+        <button type="submit" name="save">Save!</button>
       </form>
     );
   }
