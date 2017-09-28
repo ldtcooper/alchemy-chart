@@ -26,6 +26,7 @@ class SharePage extends React.Component {
         sharee_id: this.state.shareWithId,
         chart_id: this.props.match.params.id
       };
+      this.props.shareChart(this.state.shareWithId, this.props.match.params.id);
       this.setState({errors: ['Success']});
     } else {
       this.setState({errors: ['You must select a user!']});
