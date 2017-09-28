@@ -31,4 +31,9 @@ class Chart < ApplicationRecord
   foreign_key: :dataset_id,
   class_name: :Dataset
 
+  has_many :shares,
+  primary_key: :id,
+  foreign_key: :chart_id,
+  class_name: :Share
+
 end

@@ -28,6 +28,15 @@ class User < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :Chart
 
+  has_many :shares,
+  primary_key: :id,
+  foreign_key: :sharee_id,
+  class_name: :Share
+
+  has_many :shared_charts,
+  through: :shares,
+  source: :chart
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
