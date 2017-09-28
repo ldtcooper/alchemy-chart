@@ -7,7 +7,8 @@ import {
 import ChartList from './chart_list';
 
 const mapStateToProps = (state) => ({
-  charts: state.charts
+  charts: state.charts,
+  errors: state.errors.chartCreate
 });
 
 const mapDispatchToProps = dispatch => ({

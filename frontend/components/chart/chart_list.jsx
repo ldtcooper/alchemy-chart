@@ -10,8 +10,15 @@ class ChartList extends React.Component {
     this.props.seeAllCharts();
   }
 
+  errorsShow() {
+    this.props.errors.map( (el, ind) => (
+      <li key={ind}>{el}</li>
+    ));
+  }
+
   render() {
     let { deleteChart } = this.props;
+    let errors = this.errorsShow();
     return(
       <div id='list-div'>
         <h2>Charts</h2>
@@ -39,6 +46,7 @@ class ChartList extends React.Component {
             }
           </tbody>
         </table>
+        {errors}
       </div>
     );
   }

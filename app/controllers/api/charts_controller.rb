@@ -26,7 +26,7 @@ class Api::ChartsController < ApplicationController
       @chart.delete
       render json: @chart.id
     else
-      render json: ["No such chart found"], status: 404
+      render json: ["You do not have delete privileges for this chart"], status: 404
     end
   end
 
