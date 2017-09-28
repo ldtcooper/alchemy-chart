@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :datasets, only: [:index, :create, :destroy, :show]
     resources :charts, only: [:index, :show, :create, :destroy]
+    resources :shares, only: [:create]
   end
 end
