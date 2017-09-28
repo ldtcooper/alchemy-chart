@@ -55,6 +55,7 @@ class NewChartForm extends React.Component {
       dataset_id: this.props.currentDataset.id
     };
     this.props.saveChart(savedChart);
+    this.props.history.push('/charts');
   }
 
   chartTypeDropdown() {
