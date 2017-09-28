@@ -9,3 +9,5 @@ const UsersReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default UsersReducer;
