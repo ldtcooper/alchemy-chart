@@ -108,7 +108,7 @@ class ChartMaker extends React.Component {
       return(
         <ResponsiveContainer width="100%" height="90%">
           <LineChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
-            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
+            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis}  />
             <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
@@ -122,7 +122,7 @@ class ChartMaker extends React.Component {
       return(
         <ResponsiveContainer width="100%" height="90%">
           <LineChart width={600} height={300} data={this.parseData()} margin={{top: 10, right: 10, left: 10, bottom: 10}}>
-            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis} label={this.props.x_axis} />
+            <XAxis dataKey={this.props.x_axis} name={this.props.x_axis}/>
             <YAxis dataKey={this.props.y_axis1} name={this.props.y_axis1}/>
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />

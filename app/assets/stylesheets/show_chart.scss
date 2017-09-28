@@ -2,7 +2,6 @@
 @import "fonts";
 
 .chart-view {
-  height: 100%;
   width: 100%;
   font-family: $roboto;
   margin: 4%;
@@ -14,11 +13,13 @@
     background: $dark-teal;
     font-size: 30px;
     padding: 2%;
+    height: 5%
   }
 
   .chart-div {
+    display: flex;
     height: 100%;
-    width: 100%;
-    background-color: $light-teal;
+    width: 90%;
+    margin: 5%;
   }
 }
