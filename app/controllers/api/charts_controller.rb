@@ -1,7 +1,7 @@
 class Api::ChartsController < ApplicationController
   def index
     @charts = current_user.charts
-    # need to add shared charts to this
+    @charts += current_user.shared_charts
     render :index
   end
 
