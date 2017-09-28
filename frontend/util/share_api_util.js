@@ -5,3 +5,10 @@ export const share = (userId, chartId) => {
     data: {sharee_id: userId, chart_id: chartId}
   });
 };
+
+export const allUsers = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/users'
+  });
+};
