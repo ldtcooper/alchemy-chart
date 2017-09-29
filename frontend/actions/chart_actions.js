@@ -49,13 +49,12 @@ export const seeOneChart = (id) => dispatch => {
   );
 };
 
-export const addChart = (chart) => dispatch => {
+export const addChart = (chart) => dispatch => (
   ChartApiUtils.createChart(chart)
   .then(
     null,
     (err) => dispatch(receiveErrors(err.responseJSON))
-  );
-};
+  ));
 
 export const deleteChart = (id) => dispatch => {
   ChartApiUtils.deleteChart(id)
