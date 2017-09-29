@@ -9,7 +9,7 @@ class NewChartForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      name: "",
+      name: undefined,
       chart_sort: "",
       chart_type: "",
       x_axis: "",
@@ -45,17 +45,22 @@ class NewChartForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const savedChart = {
-      name: this.state.name,
-      chart_sort: this.state.chart_sort,
-      chart_type: this.state.chart_type,
-      x_axis: this.state.x_axis,
-      y_axis1: this.state.y_axis1,
-      y_axis2: this.state.y_axis2,
-      dataset_id: this.props.currentDataset.id
-    };
-    this.props.saveChart(savedChart);
-    this.props.history.push('/charts');
+    if (this.state.name) {
+      const savedChart = {
+        name: this.state.name,
+        chart_sort: this.state.chart_sort,
+        chart_type: this.state.chart_type,
+        x_axis: this.state.x_axis,
+        y_axis1: this.state.y_axis1,
+        y_axis2: this.state.y_axis2,
+        dataset_id: this.props.currentDataset.id
+      };
+      this.props.saveChart(savedChart);
+      this.setState({errors: ["Success!"]});
+    } else {
+      this.setState({errors: ["Your chart cannot be unnamed"]});
+    }
+
   }
 
   chartTypeDropdown() {

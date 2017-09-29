@@ -6,7 +6,7 @@ class ChartList extends React.Component {
     super(props);
   }
 
-  componentDidMount(event) {
+  componentWillMount(event) {
     this.props.seeAllCharts();
   }
 
