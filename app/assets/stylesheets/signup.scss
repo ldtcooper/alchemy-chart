@@ -4,9 +4,19 @@
 #signup-content {
   display: flex;
 
-  .signup-box: {
+  .signup-box {
     display: flex;
     flex-flow: column;
+    z-index: 100;
+  }
+
+  .background-chart {
+    z-index: -100;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1000px;
+    height: 1000px;
   }
 
   #blurb {

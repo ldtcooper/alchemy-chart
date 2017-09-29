@@ -1,4 +1,5 @@
 import React from 'react';
+import {ResponsiveContainer, LineChart, Line} from 'recharts';
 
 class Signup extends React.Component{
   constructor(props) {
@@ -86,13 +87,32 @@ class Signup extends React.Component{
     );
   }
 
+  backgroundChart() {
+    const data = [];
+    for (var i = 0; i < 20; i++) {
+      data.push({"x": i, "y": i * Math.random()});
+    }
+
+    return(
+      <div className='background-chart'>
+        <ResponsiveContainer>
+          <LineChart data={data}>
+            <Line type="monotone" dataKey="y" stroke="#FF5722" animationDuration={3000}/>
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+
   render() {
     const blurb = this.welcomeBlurb();
     const signup = this.signupForm();
+    const chart = this.backgroundChart();
     return(
       <div id="signup-content">
         {blurb}
         {signup}
+        {chart}
       </div>
     );
   }
