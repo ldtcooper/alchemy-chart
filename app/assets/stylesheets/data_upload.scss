@@ -2,7 +2,7 @@
 @import "fonts";
 
 .data-upload {
-  background-color: $teal;
+  background-color: $light-teal;
   font-family: $roboto;
   margin: 4%;
   box-shadow: $shadow-props;
@@ -11,6 +11,7 @@
   flex-direction: column;
 
   h2 {
+    background-color: $teal;
     font-size: 30px;
     padding: 2%;
     border-bottom: 1px $dark-teal solid;
@@ -25,7 +26,7 @@
       p {
         text-align: center;
         margin: 15%;
-        color: $text-white;
+        color: $text-black;
       }
     }
 

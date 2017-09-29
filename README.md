@@ -98,7 +98,7 @@ An example of a line graph built with Alchemy Chart
 ### Data Upload
   The data upload UI was built with [Dropzone](https://github.com/react-dropzone/react-dropzone), which allows users to upload data either by dragging and dropping files, or by browsing their computer.
 
-  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_data.png)
+  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_page.png)
 
 ## Attributions
   * Share and Delete icons from Google's [Material Icons](https://material.io/icons/) pack
