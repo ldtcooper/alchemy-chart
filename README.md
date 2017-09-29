@@ -1,5 +1,3 @@
-# README
-
 [Alchemy Chart](alchemychart.herokuapp.com) is a data visualization app inspired by Chartio. It allows you to upload data in several data formats, make a variety of charts from that data, and then share those charts with other users.
 
 # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/line_graph.png)
@@ -18,7 +16,7 @@
 
   The routing was done with [React Router v4.2.0](https://github.com/ReactTraining/react-router).
 
-  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/charts_view.png)
+  # ![Charts Show](./docs/charts_view.png)
 
 
 ## Highlights
@@ -34,7 +32,7 @@
   ```
 
   With that in mind, I wrote a method to take in parsed JSON strings and loop through the arrays of arrays to format them into an array of objects according to the x- and y-axes selected by the user. This raised another problem though: all of my numbers were being passed in as strings. I solved that problem with the numberOrString method (see below) which uses regular expressions to check if a piece of data is a string with letters, which it will leave alone; a string of digits, in which case it will turn it into an integer; a string of commas and numbers, which it will turn into an integer without commas; or a string of numbers with a period, which it will turn into a float.
-  You can find the code for this [here](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/parser_demo.md)
+  You can find the code for this [here](./docs/parser_demo.md)
 
 ### Data Upload
   The data upload UI was built with [Dropzone](https://github.com/react-dropzone/react-dropzone), which allows users to upload data either by dragging and dropping files, or by browsing their computer.
