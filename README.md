@@ -8,3 +8,4 @@ And don't just forget this readme -- it'll evolve as the project does.
   * CSV and TSV parsing done with [Papa Parse](http://papaparse.com/)
   * [Dropzone](https://github.com/react-dropzone/react-dropzone) used for data import UI.
   * Charts built with [Recharts](http://recharts.org/).
+  * Data taken from The Federal Reserve, Yahoo Finance, Wikipedia, and The World Bank
