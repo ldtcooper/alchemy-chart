@@ -7,6 +7,12 @@ class Signup extends React.Component{
     this.state = {username: '', password: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+
+    const data = [];
+    for (var i = 0; i < 20; i++) {
+      data.push({"x": i, "y": i * Math.random()});
+    }
+    this.randomData = data;
   }
 
   handleChange(event) {
@@ -88,15 +94,10 @@ class Signup extends React.Component{
   }
 
   backgroundChart() {
-    const data = [];
-    for (var i = 0; i < 20; i++) {
-      data.push({"x": i, "y": i * Math.random()});
-    }
-
     return(
       <div className='background-chart'>
         <ResponsiveContainer>
-          <LineChart data={data}>
+          <LineChart data={this.randomData}>
             <Line type="monotone" dataKey="y" stroke="#FF5722" animationDuration={3000}/>
           </LineChart>
         </ResponsiveContainer>
