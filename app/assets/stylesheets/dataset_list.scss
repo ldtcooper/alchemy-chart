@@ -8,6 +8,8 @@
   font-family: $roboto;
   width: 100%;
   align-self: flex-start;
+  overflow-y: auto;
+  max-height: 80%;
 
   h2{
     background: $dark-teal;
