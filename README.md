@@ -16,7 +16,7 @@
 
   The routing was done with [React Router v4.2.0](https://github.com/ReactTraining/react-router).
 
-  # ![Charts Show](./docs/charts_view.png)
+  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/charts_view.png)
 
 
 ## Highlights
@@ -40,7 +40,7 @@
   # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_page.png)
 
   This required a unique event handler which would only allow one file of the accepted formats to be uploaded at once. It also needed to enforce a size constraint on the uploaded data (20kB in this case -- admittedly very small, but large enough to get the idea across). After confirming that  simply takes the file, passes it to a function that parses it from CSV/TSV (if needed) and sends it to the backend.
-  You can find the code for this [here](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_demo.md)
+  You can find the code for this [here](./docs/upload_demo.md)
 
 ## Future Additions
   * Move more of the parsing to the backend.
