@@ -100,6 +100,38 @@ An example of a line graph built with Alchemy Chart
 
   # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_page.png)
 
+  This required a unique event handler which would only allow one file of the accepted formats to be uploaded at once. It also needed to enforce a size constraint on the uploaded data (20kB in this case -- admittedly very small, but large enough to get the idea across).
+
+  ```javascript
+  handleDrop(files) {
+    const file = files[0]; //only allows one file to be uploaded at a time.
+    const acceptedTypes = ['application/json', 'text/csv', 'text/tab-separated-values'];
+    const dataType = this.fileType(file);
+    if (file.size > 20000) {
+      this.setState({errors: ["Files must be under 20 kB in size."]});
+    } else if (!acceptedTypes.includes(file.type)) {
+      this.setState({errors: ["Files must be CSV, TSV, or JSON"]});
+    }
+    else {
+      this.setState({errors: [], message: `${file.name}`, dataType});
+      this.fileReader.onload = (e) => {
+        this.fileParse(e.target.result);
+      };
+      this.fileReader.readAsText(file);
+    }
+  }
+  ```
+
+  The `onload` portion simply takes the file, passes it to a function that parses it from CSV/TSV (if needed) and sends it to the backend.
+
+## Future Additions
+  * Move more of the parsing to the backend.
+  * Add the ability to look at data tables without loading them into graphs.
+  * Make graphing more resilient to varying formats.
+  * More graphs!
+
+
+
 ## Attributions
   * Share and Delete icons from Google's [Material Icons](https://material.io/icons/) pack
   * [Dropzone](https://github.com/react-dropzone/react-dropzone) used for data import UI.
