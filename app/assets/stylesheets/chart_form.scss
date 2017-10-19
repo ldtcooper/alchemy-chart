@@ -2,7 +2,7 @@
 @import "fonts";
 
 .chart-page {
-  background-color: $light-teal;
+  background-color: lightgrey;
   font-family: $roboto;
   font-size: 14px;
   margin: 4%;
@@ -35,7 +35,7 @@
 
       .no-chart-box {
         width: 100%;
-        border: 2px dashed $divider-grey;
+        border: 2px dashed $teal;
         display: flex;
         justify-content: center;
 
@@ -56,6 +56,14 @@
     margin-bottom: 5%;
     ul {
       list-style: none;
+    }
+  }
+
+  button {
+    box-shadow: 0px 1px 1px 0px grey;
+
+    &:hover {
+      box-shadow: 0px 2px 2px 0px grey;
     }
   }
 }

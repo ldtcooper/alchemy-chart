@@ -8,12 +8,15 @@
   display: flex;
   flex-direction: column;
   box-shadow: $shadow-props;
+  background: lightgrey;
+
 
   h2 {
-    background: $dark-teal;
+    background: $teal;
     font-size: 30px;
     padding: 2%;
-    height: 5%
+    height: 5%;
+    color: white;
   }
 
   .chart-div {

@@ -2,7 +2,7 @@
 @import "fonts";
 
 .share-form {
-  background-color: $teal;
+  background-color: lightgrey;
   font-family: $roboto;
   margin: 4%;
   box-shadow: $shadow-props;
@@ -13,8 +13,8 @@
   h2 {
     font-size: 30px;
     padding: 2%;
-    border-bottom: 1px $dark-teal solid;
-    background-color: $dark-teal;
+    background-color: $teal;
+    color: white;
   }
 
   form {
@@ -29,6 +29,16 @@
       select {
         margin: 3% 0% 3% 0%;
         width: 100%;
+      }
+
+
+    }
+
+    button {
+      box-shadow: 0px 1px 1px 0px grey;
+
+      &:hover {
+        box-shadow: 0px 2px 2px 0px grey;
       }
     }
 
