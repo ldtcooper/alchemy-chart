@@ -117,8 +117,8 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
-            <Line type='monotone' dataKey={this.props.y_axis2} stroke='#FF5722'/>
+            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#5472d3'/>
+            <Line type='monotone' dataKey={this.props.y_axis2} stroke='#ffc046'/>
           </LineChart>
         </ResponsiveContainer>
       );
@@ -131,7 +131,7 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#00796B'/>
+            <Line type='monotone' dataKey={this.props.y_axis1} stroke='#5472d3'/>
           </LineChart>
         </ResponsiveContainer>
       );
@@ -139,12 +139,12 @@ class ChartMaker extends React.Component {
   }
 
   circleChart() {
-    const COLORS = ['#009688', '#00796B', '#FF5722', '#BDBDBD'];
+    const COLORS = ['#0d47a1', '#ffc046', '#5472d3','#002171', '#ff8f00','#8eacbb', '#c56000'];
     let data = this.parseData();
       return(
         <ResponsiveContainer width="100%" height="100%">
           <PieChart margin={{top: 10, right: 10, left: 10, bottom: 10}}>
-            <Pie data={data} nameKey={this.props.x_axis} dataKey={this.props.y_axis1} fill="#00796B">
+            <Pie data={data} nameKey={this.props.x_axis} dataKey={this.props.y_axis1} fill="#5472d3">
               {
                 data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
               }
@@ -165,8 +165,8 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
-            <Bar type='monotone' dataKey={this.props.y_axis2} fill='#FF5722'/>
+            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#5472d3'/>
+            <Bar type='monotone' dataKey={this.props.y_axis2} fill='#ffc046'/>
           </BarChart>
         </ResponsiveContainer>
       );
@@ -179,7 +179,7 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
+            <Bar type='monotone' dataKey={this.props.y_axis1} fill='#5472d3'/>
           </BarChart>
         </ResponsiveContainer>
       );
@@ -195,7 +195,7 @@ class ChartMaker extends React.Component {
           <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
           <Tooltip cursor={{ strokeDasharray: '3 3' }}/>
           <Legend />
-          <Scatter type='monotone' dataKey={this.props.y_axis1} fill='#00796B'/>
+          <Scatter type='monotone' dataKey={this.props.y_axis1} fill='#5472d3'/>
         </ScatterChart>
       </ResponsiveContainer>
     );
@@ -211,8 +211,8 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Area type='monotone' dataKey={this.props.y_axis1} fill='#00796B' stroke='#00796B'/>
-            <Area type='monotone' dataKey={this.props.y_axis2} fill='#FF5722' stroke='#FF5722'/>
+            <Area type='monotone' dataKey={this.props.y_axis1} fill='#5472d3' stroke='#5472d3'/>
+            <Area type='monotone' dataKey={this.props.y_axis2} fill='#ffc046' stroke='#ffc046'/>
           </AreaChart>
         </ResponsiveContainer>
       );
@@ -225,7 +225,7 @@ class ChartMaker extends React.Component {
             <CartesianGrid stroke='#BDBDBD' strokeDasharray='5 5'/>
             <Tooltip />
             <Legend />
-            <Area type='monotone' dataKey={this.props.y_axis1} fill='#00796B' stroke='#00796B'/>
+            <Area type='monotone' dataKey={this.props.y_axis1} fill='#5472d3' stroke='#5472d3'/>
           </AreaChart>
         </ResponsiveContainer>
       );
