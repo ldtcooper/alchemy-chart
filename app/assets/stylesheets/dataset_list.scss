@@ -2,7 +2,7 @@
 @import "fonts";
 
 #list-div {
-  background-color: $light-teal;
+  background-color: lightgrey;
   box-shadow: $shadow-props;
   margin: 4%;
   font-family: $roboto;
@@ -12,16 +12,17 @@
   max-height: 80%;
 
   h2{
-    background: $dark-teal;
+    background: $teal;
     font-size: 30px;
-    padding: 2%;
+    padding: 2.5%;
     box-shadow: $light-shadow-props;
+    color: white;
   }
 
   table {
     width: 100%;
     thead {
-      background: $teal;
+      background: dimgrey;
       font-size: 20px;
 
       th {

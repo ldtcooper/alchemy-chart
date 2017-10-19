@@ -2,7 +2,7 @@
 @import "palette";
 
 nav {
-  background-color: $dark-teal;
+  background-color: $teal;
   display: flex;
   flex-flow: column wrap;
   width: 18%;
@@ -13,7 +13,7 @@ nav {
     font-size: 18px;
     text-decoration: none;
     color: $text-white;
-    padding: 15% 10% 15% 10%;
+    padding: 15% 15% 15% 15%;
   }
 
   .active {

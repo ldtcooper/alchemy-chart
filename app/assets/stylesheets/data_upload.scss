@@ -2,7 +2,7 @@
 @import "fonts";
 
 .data-upload {
-  background-color: $light-teal;
+  background-color: lightgrey;
   font-family: $roboto;
   margin: 4%;
   box-shadow: $shadow-props;
@@ -13,15 +13,15 @@
   h2 {
     background-color: $teal;
     font-size: 30px;
-    padding: 2%;
-    border-bottom: 1px $dark-teal solid;
+    padding: 2.5%;
+    color: white;
   }
 
   .dropzone {
     margin: auto;
 
     .drop-area {
-      border: 2px $dark-teal dashed;
+      border: 2px $teal dashed;
 
       p {
         text-align: center;
@@ -41,7 +41,16 @@
         align-items: center;
         input {
           margin: 2%;
+          padding: 1%;
           min-width: 200px;
+        }
+      }
+
+      button {
+        box-shadow: 0px 1px 1px 0px grey;
+
+        &:hover {
+          box-shadow: 0px 2px 2px 0px grey;
         }
       }
     }
