@@ -1,6 +1,6 @@
 [Alchemy Chart](alchemychart.herokuapp.com) is a data visualization app inspired by Chartio. It allows you to upload data in several data formats, make a variety of charts from that data, and then share those charts with other users.
 
-# ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/line_graph.png)
+# ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/login.gif)
 
 ## Features
   * Upload data in JSON, CSV, or TSV formats.
@@ -16,7 +16,7 @@
 
   The routing was done with [React Router v4.2.0](https://github.com/ReactTraining/react-router).
 
-  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/charts_view.png)
+  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/graph.gif)
 
 
 ## Highlights
@@ -37,7 +37,7 @@
 ### Data Upload
   The data upload UI was built with [Dropzone](https://github.com/react-dropzone/react-dropzone), which allows users to upload data either by dragging and dropping files, or by browsing their computer.
 
-  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload_page.png)
+  # ![Charts Show](https://raw.githubusercontent.com/ldtcooper/alchemy-chart/master/docs/upload.png)
 
   This required a unique event handler which would only allow one file of the accepted formats to be uploaded at once. It also needed to enforce a size constraint on the uploaded data (20kB in this case -- admittedly very small, but large enough to get the idea across). After confirming that  simply takes the file, passes it to a function that parses it from CSV/TSV (if needed) and sends it to the backend.
   You can find the code for this [here](./docs/upload_demo.md)
